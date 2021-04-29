@@ -12,8 +12,8 @@ A request to bring the Schools Onboarding dashboard up to date
 
 ## Pre-requisits
 
-- You will need to have [set up the Cloud Foundry command line](https://docs.cloud.service.gov.uk/get_started.html#set-up-the-cloud-foundry-command-line)
-- You will also need to [sign in to Cloud foundry](https://docs.cloud.service.gov.uk/get_started.html#sign-in-to-cloud-foundry)
+- You will need to have [set up the Cloud Foundry command line][1]
+- You will also need to [sign in to Cloud foundry][2]
 
 ## Process
 
@@ -30,3 +30,6 @@ cf conduit ecf-postgres-production -- psql -c "\copy (SELECT s.name, s.urn, ne.s
 ```
 
 Send the generated `prod.csv` file to our performance analyst
+
+[1]: https://docs.cloud.service.gov.uk/get_started.html#set-up-the-cloud-foundry-command-line
+[2]: https://docs.cloud.service.gov.uk/get_started.html#sign-in-to-cloud-foundry
