@@ -1,15 +1,15 @@
 # Host to use for canonical URL generation (without trailing slash)
-host: https://dfe-digital.github.io/technical-guidance
+host: https://dfe-digital.github.io/cpd-service-manual
 
 # Header-related options
 show_govuk_logo: false
-service_name: DfE Technical Guidance
+service_name: DfE CPD Service Manual
 service_link: /
 
 # Links to show on right-hand-side of header
 header_links:
   Documentation: /
-  GitHub: https://github.com/DFE-Digital/technical-guidance
+  GitHub: https://github.com/DFE-Digital/cpd-service-manual
 
 footer_links:
   Accessibility: /accessibility.html
@@ -35,16 +35,8 @@ max_toc_heading_level: 3
 prevent_indexing: true
 
 show_contribution_banner: true
-github_repo: DFE-Digital/technical-guidance
+github_repo: /DFE-Digital/cpd-service-manual
 github_branch: master
 
-redirects:
-  /principles/coding-principles: /documentation/principles/coding-principles.html
-  /principles/frontend-development-principles: /documentation/principles/frontend-development-principles.html
-  /standards/licencing-software-or-code: /documentation/standards/licencing-software-or-code.html
-  /standards/naming-things: /documentation/standards/naming-things.html
-  /standards/storing-source-code: /documentation/standards/storing-source-code.html
-  /standards/using-3rd-party-open-source-products: /documentation/standards/using-3rd-party-open-source-products.html
-  /guides/api-guidance: /documentation/guides/api-guidance.html
-  /guides/default-technology-stack: /documentation/guides/default-technology-stack.html
-  /guides/govuk-paas: /documentation/guides/govuk-paas.html
+# redirects:
+#  /target-architecture: /documentation/target-architecture.html

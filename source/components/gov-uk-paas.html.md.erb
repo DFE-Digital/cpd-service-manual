@@ -1,0 +1,84 @@
+---
+title: GOV UK PaaS
+---
+
+# <%= current_page.data.title %>
+
+## Description
+A part of the Common Platform provided by GDS, PaaS is a service which provides  development teams from within the public sector with the ability to host and run applications written in a limited set of languages, use some [common hosted backing services](https://www.cloud.service.gov.uk/features) and do so cheaply and efficiently.
+
+It is primarily designed for government digital services that do not have or do not wish to spend money on infrastructure operations engineers to manage their services.  Due to the lack of infrastructure engineers, the system is designed to only allow applications to run that have very simple operational requirements, those that fit within a defined architecture pattern generally called [“12 factor”](https://12factor.net).
+
+For more details see [the service features](https://www.cloud.service.gov.uk/features)
+
+## Contacts
+
+| Method | Link |
+|-----|-------|
+| **Web** | [https://admin.london.cloud.service.gov.uk/support](https://admin.london.cloud.service.gov.uk/support) |
+| **Slack** | [https://ukgovernmentdigital.slack.com/archives/C33SAH4GJ](https://ukgovernmentdigital.slack.com/archives/C33SAH4GJ) |
+
+## Integration Architecture
+
+|    |
+|----|
+|    |
+
+## Capacity Planning
+
+| SLA | measurement |
+|------|------|
+| **Expected Load Avg** | 10 concurrent requests per second |
+| **Expected Load Max** | 40 concurrent requests per second |
+
+## Support Model
+
+<table>
+  <tr>
+      <th>SLA</th>
+      <td>24-hour platform level support</td>
+  </tr>
+  <tr>
+    <th>Triage / Escalation Model</th>
+    <td>Slack channel is monitored 24/7</td>
+  </tr>
+</table>
+
+## DevOps Contacts
+
+| Reports | Usage |
+|---------|-------|
+| **Monitoring** | [https://status.cloud.service.gov.uk](https://status.cloud.service.gov.uk) |
+| **Change log** | [https://github.com/alphagov/paas-roadmap/projects/1?fullscreen=true](https://github.com/alphagov/paas-roadmap/projects/1?fullscreen=true) |
+| **Incident management** | [https://admin.london.cloud.service.gov.uk/support](https://admin.london.cloud.service.gov.uk/support) |
+
+## Licenses
+N/A
+
+## Pricing
+
+| Service | Size | Estimated Costs (per month) |
+|---------|------|-----------------------------|
+| **Compute** | 4x 2 GiB of memory | £64.51 |
+| **Redis** | 3x small-ha-5.x | £266.10 |
+| **Postgres** | 3x small-ha-11 | £205.53 |
+| **InfluxDB** | 3x tiny-1.x | £224.64 |
+| **Admin fee of 10%** | N/A | £76.08 |
+|  | Total | £836.86 |
+
+For more detailed information please see [the service pricing](https://www.cloud.service.gov.uk/pricing) and the [Cost Calculator](https://admin.london.cloud.service.gov.uk/calculator).
+
+## Run Books
+- Getting Access
+- Adding a new team member to a service
+- Rotating API access keys
+
+## Common / Known Issues
+
+| Issue | Response |
+|-------|----------|
+
+## Scheduled / Regular Tasks
+
+| Manual / Automated | Performed By | Task Summary |
+|--------------------|--------------|--------------|

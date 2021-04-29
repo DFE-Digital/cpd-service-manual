@@ -1,0 +1,42 @@
+---
+title: End-to-end testing strategy
+---
+
+# <%= current_page.data.title %>
+
+## Goals
+The goal of the testing strategy is to validate that the whole service:
+
+- has only changed in the expected way
+- has been deployed into the correct working state
+- supports the primary user journeys
+- is secure
+- is resilient
+- does not break any other NFRs
+
+## Stages
+Each stage of testing is designed to validate a different part of the service:
+
+### Workspace
+Validates that the codebase creates an executable that will function as expected
+
+### Commit to branch
+Validates that the executable can be made into a deployable component that will function as expected
+
+### Create pull request
+Validates that the executable can be made into a deployable component that will function as expected
+
+### Deploy to PREVIEW environment
+Allows the User Researchers to see how real people interact with a specific version of the complete service that will function as expected
+
+### Push to main branch
+Validates that the executable can be made into a deployable component that will function as expected
+
+### Deploy to DEVELOPMENT environment
+Validates that a specific version of the deployable component can be deployed to an environment along with other components and will function as expected
+
+### Deploy to STAGING environment
+Allows the Product Managers / QA to inspect a specific version of the complete service that will function as expected
+
+### Deploy to PRODUCTION environment
+Allows a specific version of the complete service to be available to end users and will function as expected

@@ -1,0 +1,28 @@
+---
+title: Deployment architecture
+---
+
+# <%= current_page.data.title %>
+
+## Environments
+*Details of environments, including resource names, URLs and such*
+
+### DEVELOPMENT ( dev-*.education.gov.uk )
+All code changes are packaged into deployable releases and deployed to an integration environment which proceeds to run through a series of test packages to analyse and gather metrics against NFRs.
+
+Resources are deployed in UK on GOV UK PaaS.
+
+### PREVIEW ( pr*n*-*.education.gov.uk )
+Release Candidates can be pulled into a PREVIEW environment where User Testing of new Features can take place without blocking the critical deployment paths towards PRODUCTION.
+
+Resources are deployed in UK on GOV UK PaaS.
+
+### STAGING ( staging-*.education.gov.uk )
+Successful deployable releases can be pulled into the STAGING environment where further “smoke tests” will confirm the quality of the deployment. STAGING provides product and service owners the ability to visually verify and approve changes that are to be deployed as part of a release candidate.
+
+Resources are deployed in UK on GOV UK PaaS.
+
+### PRODUCTION ( *.education.gov.uk )
+Approved release candidates can be pulled into the PRODUCTION environment to allow public access.
+
+Resources are deployed in UK on GOV UK PaaS.

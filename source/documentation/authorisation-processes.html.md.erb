@@ -1,0 +1,24 @@
+---
+title: Authorisation processes
+---
+
+# <%= current_page.data.title %>
+
+## Lead provider reporting APIs
+
+### Authentication and authorisation
+The manage teacher professional development API uses Bearer Authentication for authentication and authorization.
+
+To begin, the Lead Provider needs to request an access token for their client application from support at [support-continuing-professional-development@digital.education.gov.uk][1]. Then the client application sends the token to the API that it wants to access.
+
+The following gives an overview of the authorization scenarios that the API supports, and provides links to more detailed content.
+
+#### Send the access token to an API
+After an application obtains an access token, it sends the token with each API request in an HTTP Authorization request header. It is not possible to send tokens as URI query-string parameters because URI parameters can end up in log files that are not completely secure. Also, it is good REST practice to avoid creating unnecessary URI parameter names.
+
+Access tokens are valid only for the set of operations and resources described in the scope of the token request. For example, if an access token is issued only for the Tracking Event API, it does not grant access to the Trainee Details API. You can, however, send that access token to the Tracking Event API multiple times for similar operations.
+
+#### Refresh the access token, if necessary
+Access tokens have limited lifetimes. If your application needs access to an API beyond the lifetime of a single access token, you will need to obtain a refresh token. Again, obtain a new access token from support at [support-continuing-professional-development@digital.education.gov.uk][1].
+
+[1]: mailto:support-continuing-professional-development@digital.education.gov.uk

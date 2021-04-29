@@ -1,0 +1,96 @@
+---
+title: Manage continuing professional development
+---
+
+# <%= current_page.data.title %>
+
+## Description
+
+
+## Status
+
+| Stage | Status badge |
+|---|---|
+| Code tests | [![Tests](https://github.com/DFE-Digital/early-careers-framework/actions/workflows/test.yml/badge.svg)](https://github.com/DFE-Digital/early-careers-framework/actions/workflows/test.yml) |
+| Staging deployment | [![Staging](https://github.com/DFE-Digital/early-careers-framework/actions/workflows/deploy_to_staging.yml/badge.svg)](https://github.com/DFE-Digital/early-careers-framework/actions/workflows/deploy_to_production.yml) |
+| Production deployment | [![Production](https://github.com/DFE-Digital/early-careers-framework/actions/workflows/deploy_to_production.yml/badge.svg)](https://github.com/DFE-Digital/early-careers-framework/actions/workflows/deploy_to_production.yml) |
+
+## Dashboards
+| Type | Link |
+|---|---|
+| **Application performance** | [Prometheus](https://grafana-cpd-monitoring-prod.london.cloudapps.digital/d/eF19g4RZx/cf-apps) |
+| **Database performance** | [Prometheus](https://grafana-cpd-monitoring-prod.london.cloudapps.digital/d/a2FR6FUMz/cf-databases) |
+| **Logs** | [Kibana](https://kibana.logit.io/s/51151c79-e17d-4407-be3a-01960f3f65ff/app/kibana#/discover?_g=()&_a=(columns:!(_sour[…]lback%22'),savedQuery:prod,sort:!())) |
+
+## Repositories
+- **Codebase** DFE-Digital/get-into-teaching-api
+- **Deployment Container** https://hub.docker.com/r/dfedigital/get-into-teaching-api
+
+## Languages
+- **Ruby** https://www.ruby-lang.org/en
+- **JavaScript** https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- **Terraform** https://www.terraform.io/docs/language/index.html
+
+## Frameworks
+- **Ruby on Rails** https://rubyonrails.org
+- **GovUK Frontend** https://frontend.design-system.service.gov.uk/#gov-uk-frontend
+
+## Documentation
+- **API Docs** [Swagger Docs](https://api.example.com/docs)
+
+## External dependencies
+
+| Dependency Name | Description of dependency | Dependency docs | Status dashboard |
+|-----------------|---------------------------|-----------------|------------------|
+| **DfE Github** | A SaaS product providing version control repositories managed by the DfE Digital Tools Team | [DfE Digital](https://github.com/dfe-digital) | [Service status](https://www.githubstatus.com) |
+| **Google Analytics** | A SaaS product providing collection, storage and reporting of website visitor tracking data | [About analytics](https://marketingplatform.google.com/intl/en_uk/about/analytics/) | [Service status](https://www.google.com/analytics/status#hl=en_GB) |
+| **Logit.io** | A SaaS product providing collection, storage and analysis of application logs | [External component](/components/logit-io.html) | [Service status](https://status.logit.io) |
+| **StatusCake** | A SaaS product offering uptime, page speed, domain and SSL certificate monitoring around the clock. | [StatusCake uptime](https://www.statuscake.com/features/uptime/) | [Service status](https://status.statuscake.com/) |
+| **GOV UK PaaS** | A GOV UK PaaS product providing container hosting and backing services for public facing services | [GOV UK cloud](https://www.cloud.service.gov.uk) | [Service status](https://status.cloud.service.gov.uk) |
+
+## Failover / HA Approach
+GOV UK PaaS is built to straddle both eu-west-1 (Dublin) and eu-west-2 (London) AWS regions, with clients able to select which region their applications are deployed to.
+
+Within a region, GOV UK PaaS is deployed to 3 availability zones, AZ-a, AZ-b, and AZ-c.  AWS asserts that almost all failures should never affect more than one availability zone at a time.
+
+The system automatically spreads diego cells across all three availability zones.  Most of the APIs and cloud foundry control components are load balanced between 2 of 3 availability zones.
+
+GOV UK PaaS is explicitly scaled to be resilient to a complete failure of any one availability zone.
+
+In the loss of two availability zones, it’s likely that client applications would continue running in the third availability zone, but that the cloud foundry control systems for allowing deployments, gathering logs and so on would be disrupted.
+
+For further information on GOV UK PaaS please refer to the main [dependency entry](/components/gov-uk-paas.html)
+
+## Licenses
+*Include details of purchaser, contacts, issuers and renewal process / dates*
+
+## Run Books
+[School onboarding report refresh](/runbooks/school-onboarding-report.html)
+
+## Common / Known Issues
+
+| Issue | Response |
+|-------|----------|
+
+## Scheduled / Regular Tasks
+| Manual / Automated | Performed By | Task Summary |
+|--------------------|--------------|--------------|
+| Manual | Developers | School onboarding report refresh |
+
+## Test Strategy
+*.... yes please*
+
+*include how general changes are tested*
+
+*regression testing suite for post-release & major change*
+
+*smoke tests for basic validation of system*
+
+## Security Testing
+*note some details here*
+
+## Performance Testing
+*note some details here*
+
+## Other Relevant Notes
+*note some details here*
