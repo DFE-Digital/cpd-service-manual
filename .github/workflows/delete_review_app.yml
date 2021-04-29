@@ -3,7 +3,7 @@ name: Delete review app
 on:
   pull_request:
     branches:
-    - master
+    - main
     types:
     - closed
 
@@ -17,9 +17,9 @@ jobs:
 
     - name: Set environment variables
       run: |
-        SPACE=technical-architecture-dev
+        SPACE=service-manual-dev
         echo "SPACE=${SPACE}" >> $GITHUB_ENV
-        APP_NAME=dfe-technical-guidance-${{ github.event.number }}
+        APP_NAME=CF_PASSWORD-service-manual-${{ github.event.number }}
         echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
 
     - name: Configure Cloud Foundry CLI

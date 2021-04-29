@@ -3,10 +3,10 @@ name: Deploy to GOV.UK PaaS
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     branches:
-    - master
+    - main
 
 jobs:
   build-and-push:
@@ -38,17 +38,17 @@ jobs:
     - name: Set environment variables (Push)
       if: ${{ github.event_name == 'push' }}
       run: |
-        SPACE=technical-architecture
+        SPACE=service-manual
         echo "SPACE=${SPACE}" >> $GITHUB_ENV
-        APP_NAME=dfe-technical-guidance
+        APP_NAME=cpd-service-manual
         echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
 
     - name: Set environment variables (Pull request)
       if: ${{ github.event_name == 'pull_request' }}
       run: |
-        SPACE=technical-architecture-dev
+        SPACE=service-manual-dev
         echo "SPACE=${SPACE}" >> $GITHUB_ENV
-        APP_NAME=dfe-technical-guidance-${{ github.event.number }}
+        APP_NAME=cpd-service-manual-${{ github.event.number }}
         echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
 
     - name: Configure Cloud Foundry CLI with space ${{ env.SPACE }}

@@ -1,4 +1,4 @@
-# DfE Technical Guidance
+# CPD Service manual
 
 How we build and operate products at the Department for Education. This repo
 is inspired by (and steals shamelessly from) the [GDS Way](https://gds-way.cloudapps.digital) and the
@@ -93,14 +93,14 @@ Any change to the branch is automatically pushed to the review app after a few m
 When the pull request is closed or merged, the review app is deleted.
 
 ## GOV.UK PaaS set-up
-The application is called `dfe-technical-guidance` and is supported by the [Staticfile buildpack][] . It is deployed in the space
-`technical-architecture`, in the `dfe` organisation.
+The application is called `cpd-service-manual` and is supported by the [Staticfile buildpack][] . It is deployed in the space
+`service-manual`, in the `dfe` organisation.
 
 The custom domain, SSL certificate and CDN are provided by the `technical-guidance` [cdn-route][] service.
 
 The deploy workflow connects to paas using service account technical-architecture-paas@digital.education.gov.uk (a Google group).
 
-The review apps are deployed to the `technical-architecture-dev` space and their name is suffixed by the PR number. There is no
+The review apps are deployed to the `service-manual-dev` space and their name is suffixed by the PR number. There is no
 cdn-route service, we simply use the default `.london.cloudapps.digital` domain.
 
 ## Licence
