@@ -16,7 +16,7 @@ configure :build do
   set :relative_links, true
 
   set :http_prefix, '/cpd-service-manual'
-  # set :site_url, "/cpd-service-manual"
+  set :site_url, "/cpd-service-manual"
 end
 
 helpers do
