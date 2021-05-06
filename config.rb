@@ -13,6 +13,8 @@ activate :robots,
 configure :build do
   # Relative assets needed to deploy to Github Pages
   activate :relative_assets
+  set :relative_links, true
+
   set :http_prefix, '/cpd-service-manual'
   # set :site_url, "/cpd-service-manual"
 end
