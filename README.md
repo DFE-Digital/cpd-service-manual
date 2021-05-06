@@ -30,10 +30,6 @@ This will install all required dependencies, including the [govuk-tech-docs gem]
 
 To make changes edit the source files in the `source` folder.
 
-Although a single page of HTML is generated the markdown is spread across
-multiple files to make it easier to manage. They can be found in
-`source/documentation`.
-
 Make sure to make changes in a branch, and issue a pull request when you want them to be reviewed and published.
 
 ## Previewing
@@ -48,7 +44,7 @@ access it if they are given the link.
 Type the following to start the server:
 
 ```
-make server
+bundle exec middleman server
 ```
 
 If all goes well something like the following output will be displayed:
@@ -68,11 +64,20 @@ If you want to preview the site exactly how it is published, you can build the s
 issues by running in verbose mode. Type the following:
 
 ```
-make build
+bundle exec rake build
 ```
 
 This will create a `build` subfolder in the application folder which contains
 the HTML and asset files ready to be published.
+
+
+## Publish to github pages
+
+To publish to the github pages website you will need to make sure that you changes are committed and pushed to the remote repository. Type the following:
+
+```
+bundle exec rake publish
+```
 
 ## Publishing changes
 
