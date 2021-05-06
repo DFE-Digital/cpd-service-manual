@@ -16,3 +16,12 @@ configure :build do
   set :http_prefix, '/cpd-service-manual'
   # set :site_url, "/cpd-service-manual"
 end
+
+helpers do
+  # Returns all pages under a certain directory.
+  def sub_pages(dir)
+    sitemap.resources.select do |resource|
+      resource.url.start_with?(dir) && resource.url != dir
+    end
+  end
+end
