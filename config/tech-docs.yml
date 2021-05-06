@@ -35,7 +35,7 @@ max_toc_heading_level: 3
 prevent_indexing: true
 
 show_contribution_banner: true
-github_repo: https://github.com/DFE-Digital/cpd-service-manual
+github_repo: DFE-Digital/cpd-service-manual
 github_branch: main
 
 # redirects:
