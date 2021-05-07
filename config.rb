@@ -4,18 +4,15 @@ GovukTechDocs.configure(self)
 
 set :layout, 'custom'
 
-activate :robots,
-  rules: [
-    { user_agent: '*', disallow: %w[/] }
-  ]
-  # sitemap: 'https://example.com/sitemap.xml'
+activate :robots, rules: [{ user_agent: '*', disallow: %w[/] }]
+
+# activate :syntax
 
 configure :build do
   # Relative assets needed to deploy to Github Pages
   set :relative_links, true
 
   set :http_prefix, '/cpd-service-manual'
-  # set :site_url, '/cpd-service-manual'
 end
 
 helpers do
