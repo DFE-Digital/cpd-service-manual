@@ -5,6 +5,7 @@ host: https://dfe-digital.github.io/cpd-service-manual
 show_govuk_logo: false
 service_name: DfE CPD Service Manual
 service_link: /cpd-service-manual
+phase: Experimental
 
 # Links to show on right-hand-side of header
 header_links:
