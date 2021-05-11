@@ -1,14 +1,24 @@
 source 'https://rubygems.org'
 
-# For faster file watcher updates on Windows:
-gem 'wdm', '~> 0.1.0', platforms: [:mswin, :mingw]
+# Windows support
+gem "tzinfo-data", platforms: %i[mswin mingw jruby]
+gem "wdm", "~> 0.1.0", platforms: %i[mswin mingw]
 
-# Windows does not come with time zone data
-gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
+gem "rake"
 
 # Include the tech docs gem
 gem 'govuk_tech_docs'
 
-gem 'middleman-gh-pages'
+gem "faraday-http-cache"
+gem "faraday_middleware"
+gem "html-pipeline"
+gem "octokit"
+gem "rubocop-govuk"
 
+# Testing
+gem "capybara"
+gem "rspec"
+gem "webmock"
+
+gem 'middleman-gh-pages'
 gem 'middleman-robots'
