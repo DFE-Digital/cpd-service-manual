@@ -19,7 +19,7 @@ jobs:
       run: |
         SPACE=service-manual-dev
         echo "SPACE=${SPACE}" >> $GITHUB_ENV
-        APP_NAME=CF_PASSWORD-service-manual-${{ github.event.number }}
+        APP_NAME=CF_PASSWORD-cpd-service-manual-${{ github.event.number }}
         echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
 
     - name: Configure Cloud Foundry CLI

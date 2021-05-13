@@ -19,6 +19,3 @@ gem "rubocop-govuk"
 gem "capybara"
 gem "rspec"
 gem "webmock"
-
-gem 'middleman-gh-pages'
-gem 'middleman-robots'

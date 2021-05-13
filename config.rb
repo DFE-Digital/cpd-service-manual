@@ -5,6 +5,7 @@ require_relative "lib/requires"
 GovukTechDocs.configure(self)
 
 set :layout, 'custom'
+ignore "templates/*"
 
 SERVICE_DOCS = [
   {
@@ -39,19 +40,6 @@ SERVICE_DOCS = [
   },
 ].freeze
 
-activate :robots, rules: [{ user_agent: '*', disallow: %w[/] }]
-
-# activate :syntax
-
-configure :build do
-  # Relative assets needed to deploy to Github Pages
-  set :relative_links, true
-
-  set :http_prefix, '/cpd-service-manual'
-end
-
-ignore "templates/*"
-
 helpers do
   def service_docs
     SERVICE_DOCS
@@ -60,19 +48,17 @@ helpers do
   def pages_by_category
     PagesByCategory.new(sitemap)
   end
-end
 
-SERVICE_DOCS.each do |service_doc|
-  service_doc[:pages].each do |page|
-    proxy page.fetch(:path), "templates/external_doc_template.html", page.fetch(:proxy_args)
-  end
-end
-
-helpers do
   # Returns all pages under a certain directory.
   def sub_pages(dir)
     sitemap.resources.select do |resource|
       resource.url.start_with?(dir) && resource.url != dir
     end
+  end
+end
+
+SERVICE_DOCS.each do |service_doc|
+  service_doc[:pages].each do |page|
+    proxy page.fetch(:path), "templates/external_doc_template.html", page.fetch(:proxy_args)
   end
 end

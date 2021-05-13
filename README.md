@@ -99,13 +99,13 @@ When the pull request is closed or merged, the review app is deleted.
 
 ## GOV.UK PaaS set-up
 The application is called `cpd-service-manual` and is supported by the [Staticfile buildpack][] . It is deployed in the space
-`service-manual`, in the `dfe` organisation.
+`early-careers-framework-prod`, in the `dfe` organisation.
 
-The custom domain, SSL certificate and CDN are provided by the `technical-guidance` [cdn-route][] service.
+The custom domain, SSL certificate and CDN are provided by the `cpd-service-manual` [cdn-route][] service.
 
 The deploy workflow connects to paas using service account technical-architecture-paas@digital.education.gov.uk (a Google group).
 
-The review apps are deployed to the `service-manual-dev` space and their name is suffixed by the PR number. There is no
+The review apps are deployed to the `early-careers-framework-dev` space and their name is suffixed by the PR number. There is no
 cdn-route service, we simply use the default `.london.cloudapps.digital` domain.
 
 ## Licence
