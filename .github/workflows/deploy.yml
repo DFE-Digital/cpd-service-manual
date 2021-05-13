@@ -38,7 +38,7 @@ jobs:
     - name: Set environment variables (Push)
       if: ${{ github.event_name == 'push' }}
       run: |
-        SPACE=service-manual
+        SPACE=earlycareers-framework-dev
         echo "SPACE=${SPACE}" >> $GITHUB_ENV
         APP_NAME=cpd-service-manual
         echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
@@ -46,7 +46,7 @@ jobs:
     - name: Set environment variables (Pull request)
       if: ${{ github.event_name == 'pull_request' }}
       run: |
-        SPACE=service-manual-dev
+        SPACE=earlycareers-framework-dev
         echo "SPACE=${SPACE}" >> $GITHUB_ENV
         APP_NAME=cpd-service-manual-${{ github.event.number }}
         echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
