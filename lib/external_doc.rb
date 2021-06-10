@@ -33,11 +33,11 @@ class ExternalDoc
 
     HTML::Pipeline
       .new(filters)
-      .to_html(markdown.to_s.force_encoding("UTF-8"), context)
+      .to_html(markdown.to_s.force_encoding("UTF-8").split("\n")[1..-1].join("\n").strip, context)
   end
 
   def self.title(markdown)
-    markdown_title = markdown.split("\n")[0].to_s.match(/#(.+)/)
+    markdown_title = markdown.split("\n")[0].to_s.match(/#+(.+)/)
     return nil unless markdown_title
 
     markdown_title[1].strip

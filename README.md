@@ -57,26 +57,6 @@ If all goes well something like the following output will be displayed:
 ```
 
 You should now be able to view a live preview at http://localhost:4567.
-
-## Build
-
-If you want to preview the site exactly how it is published, you can build the static HTML files locally. It also helps debugging
-issues by running in verbose mode. Type the following:
-
-```
-bundle exec rake build
-```
-
-This will create a `build` subfolder in the application folder which contains
-the HTML and asset files ready to be published.
-
-
-## Publish to github pages
-
-To publish to the github pages website you will need to make sure that you changes are committed and pushed to the remote repository. Type the following:
-
-```
-bundle exec rake publish
 ```
 
 ## Publishing changes

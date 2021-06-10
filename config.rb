@@ -9,9 +9,9 @@ ignore "templates/*"
 
 SERVICE_DOCS = [
   {
-    title: "Manage training for early career teachers runbooks",
+    title: "Manage continuing professional development runbooks",
     pages: GitHubRepoFetcher.instance.docs(
-      service_name: "Manage training for early career teachers",
+      service_name: "Manage continuing professional development",
       repo_name: "DFE-Digital/early-careers-framework",
       path_in_repo: "documentation",
       path_prefix: "runbooks/early-careers-framework",
@@ -19,23 +19,23 @@ SERVICE_DOCS = [
     ),
   },
   {
-    title: "CPD Payment calculations runbooks",
+    title: "Support for early career teachers runbooks",
     pages: GitHubRepoFetcher.instance.docs(
-      service_name: "CPD Payment calculations",
-      repo_name: "DFE-Digital/cpd-payment-calculations",
-      path_in_repo: "doc",
-      path_prefix: "runbooks/cpd-payment-calculations",
+      service_name: "Support for early career teachers",
+      repo_name: "DFE-Digital/ecf-engage-and-learn",
+      path_in_repo: "documentation",
+      path_prefix: "runbooks/ecf-engage-and-learn",
       # ignore_files: %w[api.md],
     ),
   },
   {
-    title: "CPD Payment calculations ADR",
+    title: "Manage continuing professional development ADR",
     pages: GitHubRepoFetcher.instance.docs(
-      service_name: "CPD Payment calculations",
-      repo_name: "DFE-Digital/cpd-payment-calculations",
-      path_in_repo: "doc/adr",
-      path_prefix: "adr/cpd-payment-calculations",
-      # ignore_files: %w[api.md],
+      service_name: "Manage continuing professional development",
+      repo_name: "DFE-Digital/early-careers-framework",
+      path_in_repo: "documentation/adr",
+      path_prefix: "adr/early-careers-framework",
+      ignore_files: %w[0001-record-architecture-decisions.md],
     ),
   },
 ].freeze
