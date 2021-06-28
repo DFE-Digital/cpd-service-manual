@@ -1,0 +1,72 @@
+---
+title: Support request - Challenge a partnership after the deadline
+---
+
+# <%= current_page.data.title %>
+
+## Information required
+- School URN
+- School name
+- Lead provider name
+- Reason for partnership challenge
+
+## Steps
+- Log in to cloudfoundry CLI and target production space:
+
+```
+cf target -o dfe -s early-careers-framework-prod
+```
+
+- SSH into the production instance:
+
+```
+cf ssh ecf-production
+```
+
+- Open a rails console:
+
+```
+cd /app && /usr/local/bin/bundle exec rails console
+```
+
+- Check the name and URN of the school match (substituting <provided_urn> for the provided urn):
+
+```
+school = School.find_by(urn: "<provided_urn>")
+school.name
+```
+
+---
+**NOTE**
+Stop if the name does not match the provided name, and report to the person who raised the ticket
+
+---
+
+- Find the partnership that needs to be challenged:
+
+```
+partnership = Partnership.unchallenged.find_by(school: school, cohort: Cohort.current)
+```
+
+- Check the lead provider name matches the provided name:
+
+```
+partnership.lead_provider.name
+```
+
+---
+**NOTE**
+Stop if the name does not match the provided name, and report to the person who raised the ticket
+
+---
+
+- Mark the partnership as challenged, providing the appropriate reason:
+
+```
+partnership.challenge!(reason)
+```
+where reason is one of `:another_provider`, `:not_confirmed`, `:do_not_recognise`, `:no_ects`, or `:mistake`
+
+- run `exit` to exit the console
+- run `exit` to close the SSH session
+- inform the support contact on the ticket that the request is complete
