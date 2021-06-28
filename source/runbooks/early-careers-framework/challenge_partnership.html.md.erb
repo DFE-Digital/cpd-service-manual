@@ -63,9 +63,10 @@ Stop if the name does not match the provided name, and report to the person who 
 - Mark the partnership as challenged, providing the appropriate reason:
 
 ```
-partnership.challenge!(reason)
+partnership.challenge!(<reason>)
+partnership.event_logs.create!(event: :challenged, data: { reason: <reason> })
 ```
-where reason is one of `:another_provider`, `:not_confirmed`, `:do_not_recognise`, `:no_ects`, or `:mistake`
+where `<reason>` is one of `:another_provider`, `:not_confirmed`, `:do_not_recognise`, `:no_ects`, or `:mistake`
 
 - run `exit` to exit the console
 - run `exit` to close the SSH session
