@@ -51,7 +51,7 @@ jobs:
         run: bin/rails db:create db:schema:load
 
       - name: create erd config file
-        uses: DamianReeves/write-file-action
+        uses: DamianReeves/write-file-action@v1.0
         with:
           path: ${{ env.home}}/.erdconfig
           contents: |
