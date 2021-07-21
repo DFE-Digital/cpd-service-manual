@@ -43,21 +43,19 @@ jobs:
           bundler-cache: true
 
       - name: Install rails-erd
-        run: |
-          bundle add rails-erd
-          bundle install
+        run: gem install rails-erd
 
       - name: Set up test database
         run: bin/rails db:create db:schema:load
 
       - name: Create ERD DOT
-        run: bundle exec erd --filetype=dot
+        run: erd --filetype=dot
 
       - name: Create ERD PDF
-        run: bundle exec erd --filetype=pdf
+        run: erd --filetype=pdf
 
       - name: Create ERD PNG
-        run: bundle exec erd --filetype=png
+        run: erd --filetype=png
 
       - name: Publish diagrams
         uses: actions/upload-artifact@v2
