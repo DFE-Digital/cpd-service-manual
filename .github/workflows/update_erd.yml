@@ -42,8 +42,8 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: And rails-erd
-        run: bundle add rails-erd
+      - name: Install rails-erd
+        run: bundle install rails-erd
 
       - name: Set up test database
         run: bin/rails db:create db:schema:load
@@ -67,6 +67,8 @@ jobs:
     name: Update entity relationship artifacts
 
     runs-on: ubuntu-20.04
+
+    needs: create-artifacts
 
     steps:
       - name: Checkout service manual
