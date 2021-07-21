@@ -44,9 +44,8 @@ jobs:
 
       - name: Install rails-erd
         run: |
-          bundle config unset deploymentd
+          bundle config unset deployment
           bundle add rails-erd
-          bundle install
 
       - name: Set up test database
         run: bin/rails db:create db:schema:load
