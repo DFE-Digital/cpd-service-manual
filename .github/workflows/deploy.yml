@@ -9,8 +9,6 @@ on:
     - main
 
 jobs:
-
-jobs:
   create-artifacts:
     name: Create entity relationship artifacts
 
