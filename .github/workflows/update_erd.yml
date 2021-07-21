@@ -43,7 +43,9 @@ jobs:
           bundler-cache: true
 
       - name: Install rails-erd
-        run: gem install rails-erd
+        run: |
+          bundle add rails-erd
+          bundle install
 
       - name: Set up test database
         run: bin/rails db:create db:schema:load
