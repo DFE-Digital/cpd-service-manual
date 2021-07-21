@@ -1,0 +1,87 @@
+name: Update entity relationship diagram
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  create-artifacts:
+    name: Create entity relationship artifacts
+
+    runs-on: ubuntu-20.04
+
+    env:
+      RAILS_ENV: test
+      DB_USERNAME: postgres
+      DB_PASSWORD: ''
+      DB_HOSTNAME: 127.0.0.1
+      DB_PORT: 5432
+
+    services:
+      postgres:
+        image: postgres:11.6-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ''
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          repository: DFE-Digital/early-careers-framework
+
+      - name: Setup Graphviz
+        uses: ts-graphviz/setup-graphviz@v1
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1.70.1
+        with:
+          bundler-cache: true
+
+      - name: And rails-erd
+        run: bundle add rails-erd
+
+      - name: Set up test database
+        run: bin/rails db:create db:schema:load
+
+      - name: Create ERD DOT
+        run: bundle exec erd --filetype=dot
+
+      - name: Create ERD PDF
+        run: bundle exec erd --filetype=pdf
+
+      - name: Create ERD PNG
+        run: bundle exec erd --filetype=png
+
+      - name: Publish diagrams
+        uses: actions/upload-artifact@v2
+        with:
+          name: Teacher CPD - entity relationship Diagram
+          path: ./tmp/entity-relationship-diagram.*
+
+  update-diagrams:
+    name: Update entity relationship artifacts
+
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout service manual
+        uses: actions/checkout@v2
+
+      - name: Get diagrams
+        uses: actions/download-artifact@v2
+        with:
+          name: Teacher CPD - entity relationship Diagram
+          path: ./source/images
+
+      - name: Push updated diagram
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "updated entity relationship diagram"
+          git push
