@@ -142,7 +142,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    needs: update-artifacts
+    needs: update-diagrams
 
     steps:
     - uses: DFE-Digital/github-actions/turnstyle@master
