@@ -1,0 +1,400 @@
+digraph EarlyCareerFramework {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial Bold";
+splines = "spline";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+rankdir = "LR";
+label = "Continuing Professional Development ERD\n\n";
+splines = "spline";
+m_CallOffContract [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">CallOffContract</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="version">version <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="raw">raw <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
+  <tr><td align="left" width="130" port="uplift_target">uplift_target <font face="Arial Italic" color="grey60">decimal</font></td></tr>
+  <tr><td align="left" width="130" port="uplift_amount">uplift_amount <font face="Arial Italic" color="grey60">decimal</font></td></tr>
+  <tr><td align="left" width="130" port="recruitment_target">recruitment_target <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="set_up_fee">set_up_fee <font face="Arial Italic" color="grey60">decimal</font></td></tr>
+</table>
+>];
+m_Cohort [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Cohort</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="start_year">start_year <font face="Arial Italic" color="grey60">integer (2) ∗</font></td></tr>
+</table>
+>];
+m_CoreInductionProgramme [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">CoreInductionProgramme</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_CpdLeadProvider [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">CpdLeadProvider</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+</table>
+>];
+m_DeliveryPartner [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">DeliveryPartner</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="discarded_at">discarded_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+</table>
+>];
+m_DistrictSparsity [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">DistrictSparsity</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="start_year">start_year <font face="Arial Italic" color="grey60">integer (2) ∗</font></td></tr>
+  <tr><td align="left" width="130" port="end_year">end_year <font face="Arial Italic" color="grey60">integer (2)</font></td></tr>
+</table>
+>];
+m_EventLog [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">EventLog</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="owner_type">owner_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="event">event <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="data">data <font face="Arial Italic" color="grey60">json</font></td></tr>
+</table>
+>];
+m_InductionCoordinatorProfile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">InductionCoordinatorProfile</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="discarded_at">discarded_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+</table>
+>];
+m_InductionCoordinatorProfilesSchool [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">InductionCoordinatorProfilesSchool</font></td></tr>
+</table>
+>];
+m_LeadProvider [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">LeadProvider</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_LeadProviderCip [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">LeadProviderCip</font></td></tr>
+</table>
+>];
+m_LeadProviderProfile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">LeadProviderProfile</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="discarded_at">discarded_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+</table>
+>];
+m_LocalAuthority [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">LocalAuthority</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_LocalAuthorityDistrict [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">LocalAuthorityDistrict</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="code">code <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_NPQCourse [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NPQCourse</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="identifier">identifier <font face="Arial Italic" color="grey60">text</font></td></tr>
+</table>
+>];
+m_NPQLeadProvider [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NPQLeadProvider</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+</table>
+>];
+m_NPQValidationData [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NPQValidationData</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="date_of_birth">date_of_birth <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="teacher_reference_number">teacher_reference_number <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="teacher_reference_number_verified">teacher_reference_number_verified <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="school_urn">school_urn <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="headteacher_status">headteacher_status <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="active_alert">active_alert <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="eligible_for_funding">eligible_for_funding <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="funding_choice">funding_choice <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="nino">nino <font face="Arial Italic" color="grey60">text</font></td></tr>
+</table>
+>];
+m_Network [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Network</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="group_type">group_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="group_type_code">group_type_code <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="group_id">group_id <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="group_uid">group_uid <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="secondary_contact_email">secondary_contact_email <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_ParticipantBand [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantBand</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="min">min <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="max">max <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="per_participant">per_participant <font face="Arial Italic" color="grey60">decimal</font></td></tr>
+</table>
+>];
+m_ParticipantDeclaration [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantDeclaration</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="declaration_type">declaration_type <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="declaration_date">declaration_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="raw_event">raw_event <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
+  <tr><td align="left" width="130" port="course_type">course_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_ParticipantEvent [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantEvent</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="item_type">item_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="event">event <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="whodunnit">whodunnit <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="object">object <font face="Arial Italic" color="grey60">json</font></td></tr>
+  <tr><td align="left" width="130" port="object_changes">object_changes <font face="Arial Italic" color="grey60">json</font></td></tr>
+</table>
+>];
+m_ParticipantProfile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantProfile</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="school_id">school_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="core_induction_programme_id">core_induction_programme_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="cohort_id">cohort_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="mentor_profile_id">mentor_profile_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="sparsity_uplift">sparsity_uplift <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="pupil_premium_uplift">pupil_premium_uplift <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+</table>
+>];
+m_ParticipationRecord [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipationRecord</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Partnership [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Partnership</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="challenged_at">challenged_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="challenge_reason">challenge_reason <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="challenge_deadline">challenge_deadline <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="pending">pending <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="report_id">report_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+</table>
+>];
+m_ProfileDeclaration [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ProfileDeclaration</font></td></tr>
+</table>
+>];
+m_ProviderRelationship [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ProviderRelationship</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="discarded_at">discarded_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+</table>
+>];
+m_PupilPremium [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">PupilPremium</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="start_year">start_year <font face="Arial Italic" color="grey60">integer (2) ∗</font></td></tr>
+  <tr><td align="left" width="130" port="total_pupils">total_pupils <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="eligible_pupils">eligible_pupils <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+m_School [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">School</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="school_type_code">school_type_code <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="address_line1">address_line1 <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="address_line2">address_line2 <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="address_line3">address_line3 <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="postcode">postcode <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="domains">domains <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="school_type_name">school_type_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="ukprn">ukprn <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="school_phase_type">school_phase_type <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="school_phase_name">school_phase_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="school_website">school_website <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="school_status_code">school_status_code <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="school_status_name">school_status_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="secondary_contact_email">secondary_contact_email <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="primary_contact_email">primary_contact_email <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="administrative_district_code">administrative_district_code <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="administrative_district_name">administrative_district_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="slug">slug <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_SchoolCohort [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">SchoolCohort</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="induction_programme_choice">induction_programme_choice <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="estimated_teacher_count">estimated_teacher_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="estimated_mentor_count">estimated_mentor_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="opt_out_of_updates">opt_out_of_updates <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+</table>
+>];
+m_SchoolLocalAuthority [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">SchoolLocalAuthority</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="start_year">start_year <font face="Arial Italic" color="grey60">integer (2) ∗</font></td></tr>
+  <tr><td align="left" width="130" port="end_year">end_year <font face="Arial Italic" color="grey60">integer (2)</font></td></tr>
+</table>
+>];
+m_SchoolLocalAuthorityDistrict [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">SchoolLocalAuthorityDistrict</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="start_year">start_year <font face="Arial Italic" color="grey60">integer (2) ∗</font></td></tr>
+  <tr><td align="left" width="130" port="end_year">end_year <font face="Arial Italic" color="grey60">integer (2)</font></td></tr>
+</table>
+>];
+m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="full_name">full_name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">citext ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="login_token">login_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="login_token_valid_until">login_token_valid_until <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="remember_created_at">remember_created_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_at">last_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="current_sign_in_at">current_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="current_sign_in_ip">current_sign_in_ip <font face="Arial Italic" color="grey60">inet</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_ip">last_sign_in_ip <font face="Arial Italic" color="grey60">inet</font></td></tr>
+  <tr><td align="left" width="130" port="sign_in_count">sign_in_count <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="discarded_at">discarded_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+</table>
+>];
+  m_User -> m_ParticipantProfile [arrowhead = "normal", arrowtail = "none", weight = "5"];
+  m_User -> m_InductionCoordinatorProfile [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_User -> m_School [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "4", constraint = "false"];
+  m_User -> m_LeadProviderProfile [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_User -> m_LeadProvider [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "4", constraint = "false"];
+  m_School -> m_Partnership [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_LeadProvider -> m_Partnership [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_Cohort -> m_Partnership [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_DeliveryPartner -> m_Partnership [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Partnership -> m_EventLog [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Network -> m_School [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_School -> m_SchoolLocalAuthority [arrowhead = "normal", arrowtail = "none", weight = "3"];
+  m_School -> m_LocalAuthority [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "3", constraint = "false"];
+  m_School -> m_SchoolLocalAuthorityDistrict [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_School -> m_LocalAuthorityDistrict [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_School -> m_LeadProvider [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_School -> m_SchoolCohort [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_School -> m_PupilPremium [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_School -> m_InductionCoordinatorProfilesSchool [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_School -> m_InductionCoordinatorProfile [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_School -> m_ParticipantProfile [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_CpdLeadProvider -> m_NPQLeadProvider [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_NPQLeadProvider -> m_NPQValidationData [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_CallOffContract -> m_ParticipantBand [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_DeliveryPartner -> m_ProviderRelationship [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_DeliveryPartner -> m_LeadProvider [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_Cohort -> m_ProviderRelationship [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_LeadProvider -> m_ProviderRelationship [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_CpdLeadProvider -> m_LeadProvider [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_LocalAuthorityDistrict -> m_SchoolLocalAuthorityDistrict [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_LocalAuthorityDistrict -> m_DistrictSparsity [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_InductionCoordinatorProfile -> m_InductionCoordinatorProfilesSchool [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_DeliveryPartner -> m_ParticipantEvent [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_InductionCoordinatorProfile -> m_ParticipantEvent [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_InductionCoordinatorProfilesSchool -> m_ParticipantEvent [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_LeadProviderProfile -> m_ParticipantEvent [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_ParticipationRecord -> m_ParticipantEvent [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Partnership -> m_ParticipantEvent [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_SchoolCohort -> m_ParticipantEvent [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_User -> m_ParticipantEvent [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_LeadProvider -> m_ParticipationRecord [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_LeadProvider -> m_LeadProviderProfile [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_LeadProvider -> m_ParticipantProfile [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "2", constraint = "false"];
+  m_LeadProvider -> m_Cohort [arrowhead = "normal", arrowtail = "normal", weight = "1"];
+  m_LeadProvider -> m_LeadProviderCip [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_LeadProvider -> m_CoreInductionProgramme [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+  m_LeadProvider -> m_CallOffContract [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_LeadProvider -> m_ParticipantDeclaration [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_NPQValidationData [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_NPQCourse -> m_NPQValidationData [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Cohort -> m_LeadProviderCip [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_CoreInductionProgramme -> m_LeadProviderCip [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Cohort -> m_SchoolCohort [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_CoreInductionProgramme -> m_SchoolCohort [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_SchoolCohort -> m_ParticipantProfile [arrowhead = "normal", arrowtail = "none", weight = "4"];
+  m_SchoolCohort -> m_User [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "4", constraint = "false"];
+  m_ParticipantDeclaration -> m_ProfileDeclaration [arrowhead = "none", arrowtail = "none", weight = "2"];
+  m_User -> m_ParticipantDeclaration [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_ParticipantProfile -> m_ProfileDeclaration [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_LocalAuthority -> m_SchoolLocalAuthority [arrowhead = "normal", arrowtail = "none", weight = "2"];
+}
