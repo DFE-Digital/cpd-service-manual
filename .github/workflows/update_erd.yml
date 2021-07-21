@@ -50,6 +50,50 @@ jobs:
       - name: Set up test database
         run: bin/rails db:create db:schema:load
 
+      - name: create erd config file
+        uses: DamianReeves/write-file-action
+        with:
+          path: ${{ env.home}}/.erdconfig
+          contents: |
+            attributes:
+              - content
+            disconnected: false
+            filename: tmp/entity-relationship-diagram
+            filetype: pdf
+            indirect: true
+            inheritance: false
+            markup: true
+            notation: simple
+            orientation: vertical
+            polymorphism: false
+            sort: false
+            warn: true
+            title: Continuing Professional Development ERD
+            exclude:
+              - PaperTrail::Version
+              - AdminProfile
+              - ActiveStorage::Blob
+              - ActiveStorage::VariantRecord
+              - ActiveStorage::Attachment
+              - Feature
+              - Feature::SelectedObject
+              - DataStage::SchoolLink
+              - DataStage::School
+              - DataStage::SchoolChange
+              - ActionMailbox::InboundEmail
+              - AdditionalSchoolEmail
+              - NominationEmail
+              - PartnershipNotificationEmail
+              - PartnershipCsvUpload
+              - PrivacyPolicy::Acceptance
+              - PrivacyPolicy
+            only: null
+            only_recursion_depth: null
+            prepend_primary: false
+            cluster: true
+            splines: spline
+          write-mode: overwrite
+
       - name: Create ERD DOT
         run: bundle exec erd --filetype=dot
 
