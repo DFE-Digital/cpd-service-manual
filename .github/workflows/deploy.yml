@@ -2,11 +2,12 @@ name: Deploy to GOV.UK PaaS
 
 on:
   push:
-    branches:
-    - main
+    branches: [ main ]
   pull_request:
-    branches:
-    - main
+    # The branches below must be a subset of the branches above
+    branches: [ main ]
+  schedule:
+    - cron: '0 12 * * *'
 
 jobs:
   create-artifacts:
@@ -40,10 +41,11 @@ jobs:
       - name: Setup Graphviz
         uses: ts-graphviz/setup-graphviz@v1
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1.70.1
+      # Customize the ruby version depending on your needs
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.85.0
         with:
-          bundler-cache: true
+          ruby-version: '2.7.4'
 
       - name: Install rails-erd
         run: |

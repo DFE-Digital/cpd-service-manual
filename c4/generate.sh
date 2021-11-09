@@ -1,3 +1,4 @@
+mkdir ./output
 rm -fr ./output/*
 
 docker pull structurizr/cli:latest
