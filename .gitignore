@@ -17,3 +17,5 @@
 
 # Ignore built documentation
 /build
+/c4/.structurizr
+/c4/output

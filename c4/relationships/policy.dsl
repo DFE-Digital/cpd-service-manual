@@ -1,0 +1,17 @@
+ssrm -> teacher_cpd.cpd_management "Uses" "HTTPS TLS 1.2"
+
+ssrm -> data_studio.dashboards.ecf_schools "Monitors" "HTTPS/SSL TLS 1.2"
+ssrm -> data_studio.dashboards.ecf_partnerships "Monitors" "HTTPS/SSL TLS 1.2"
+ssrm -> data_studio.dashboards.ecf_validations "Monitors" "HTTPS/SSL TLS 1.2"
+ssrm -> data_studio.dashboards.ecf_declarations "Monitors" "HTTPS/SSL TLS 1.2"
+ssrm -> data_studio.dashboards.npq_validations "Monitors" "HTTPS/SSL TLS 1.2"
+ssrm -> data_studio.dashboards.npq_declarations "Monitors" "HTTPS/SSL TLS 1.2"
+
+analysis -> teacher_cpd.cpd_management "Uses" "HTTPS TLS 1.2"
+analysis -> data_studio.dashboards.ecf_schools "Monitors" "HTTPS/SSL TLS 1.2"
+analysis -> data_studio.dashboards.ecf_partnerships "Monitors" "HTTPS/SSL TLS 1.2"
+analysis -> data_studio.dashboards.ecf_validations "Monitors" "HTTPS/SSL TLS 1.2"
+analysis -> data_studio.dashboards.ecf_declarations "Monitors" "HTTPS/SSL TLS 1.2"
+analysis -> data_studio.dashboards.npq_validations "Monitors" "HTTPS/SSL TLS 1.2"
+analysis -> data_studio.dashboards.npq_declarations "Monitors" "HTTPS/SSL TLS 1.2"
+analysis -> data_studio "Monitors" "HTTPS/SSL TLS 1.2"
