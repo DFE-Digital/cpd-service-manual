@@ -22,14 +22,14 @@ workspace {
       !include ./systems/dfe/gias.dsl
       !include ./systems/dfe/dqt.dsl
       !include ./systems/dfe/cip.dsl
-
-      teacher_cpd = enterprise "Teacher CPD" {
-        !include ./systems/dfe/teacher-cpd.dsl
-
-        !include ./groups/digital.dsl
-        !include ./groups/policy.dsl
-      }
     }
+
+    group "Teacher CPD" {
+      !include ./systems/dfe/teacher-cpd.dsl
+    }
+
+    !include ./groups/digital.dsl
+    !include ./groups/policy.dsl
 
     # external users
     !include ./groups/providers.dsl

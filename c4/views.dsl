@@ -1,16 +1,36 @@
+/*
 # Level 1
-systemContext teacher_cpd {
+systemContext cpd_management {
+  include *
+  autoLayout
+}
+
+systemContext ect_support {
+  include *
+  autoLayout
+}
+
+systemContext npq_registrations {
   include *
   autoLayout
 }
 
 # Level 2
-container teacher_cpd {
+container cpd_management {
   include *
   autoLayout
 }
 
-/*
+container ect_support {
+  include *
+  autoLayout
+}
+
+container npq_registrations {
+  include *
+  autoLayout
+}
+
 container github "continuous-improvement" "Continuous improvement and deployment (CI/CD) process" {
   include *
   autoLayout
@@ -20,20 +40,19 @@ container sentry_io "Alerting" "Operational alerts" {
   include *
   autoLayout
 }
-*/
 
 # Level 3
-component teacher_cpd.cpd_management {
+component cpd_management {
   include *
   autoLayout
 }
 
-component teacher_cpd.ect_support {
+component ect_support {
   include *
   autoLayout
 }
 
-component teacher_cpd.npq_registrations {
+component npq_registrations {
   include *
   autoLayout
 }
@@ -64,12 +83,9 @@ component data_studio.dashboards "operational-reports" "Operational reports dash
 }
 
 # Level 4
-/*
 # Code
-*/
 
 #Supplementary diagrams
-/*
 systemlandscape dfe {
   include *
   autoLayout

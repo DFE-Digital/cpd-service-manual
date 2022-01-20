@@ -28,7 +28,7 @@ element "Deployment Node" {
 }
 
 relationship "Relationship" {
-  thickness 5
+  thickness 1
   routing Direct
   dashed false
 }

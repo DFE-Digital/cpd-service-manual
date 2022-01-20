@@ -1,10 +1,10 @@
-developer -> teacher_cpd.prometheus "Monitors" "HTTPS TLS 1.2"
+developer -> prometheus "Monitors" "HTTPS TLS 1.2"
 developer -> github.repositories "Pushes code changes to" "SSL TLS 1.2"
 developer -> cip.key_vault "Pushes environment configuration changes to" "HTTPS TLS 1.2"
-developer -> teacher_cpd.cpd_management "Pushes configuration changes to " "HTTPS TLS 1.2"
+developer -> cpd_management "Pushes configuration changes to " "HTTPS TLS 1.2"
 developer -> data_studio "Monitors" "HTTPS TLS 1.2"
 developer -> slack.dfe.alerts "Is notified by" "HTTPS TLS 1.2"
 
-support -> teacher_cpd.cpd_management "Uses" "HTTPS TLS 1.2"
+support -> cpd_management "Uses" "HTTPS TLS 1.2"
 support -> data_studio "Monitors" "HTTPS TLS 1.2"
 support -> zendesk.console "Uses" "HTTPS TLS 1.2"

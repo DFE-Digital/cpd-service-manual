@@ -19,3 +19,5 @@ gem "rubocop-govuk"
 gem "capybara"
 gem "rspec"
 gem "webmock"
+
+gem "ruby-graphviz", "~> 1.2"

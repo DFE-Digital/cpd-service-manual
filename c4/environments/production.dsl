@@ -13,32 +13,41 @@ deploymentEnvironment "Production" {
     }
   }
 
-  deploymentNode "Department for Education" "" "GOV UK PaaS" {
-    deploymentNode "Teacher CPD" "" "Space" {
+  deploymentNode "GOV UK PaaS" {
+    deploymentNode "Department for Education" "" "Space" {
       deploymentNode "CPD Management Service" {
         deploymentNode "Docker Container" "" "Alpine Linux"  {
-          containerInstance teacher_cpd.cpd_management cpd_management_group
+          softwareSystemInstance cpd_management cpd_management_group
         }
 
-        containerInstance teacher_cpd.cpd_management_db cpd_management_group
+        #containerInstance cpd_management.cpd_management_db cpd_management_group
       }
 
       deploymentNode "ECT Support Service" {
         deploymentNode "Docker Container" "" "Alpine Linux" {
-          containerInstance teacher_cpd.ect_support
+          softwareSystemInstance ect_support
         }
 
-        containerInstance teacher_cpd.ect_support_db
-        containerInstance teacher_cpd.ect_support_materials
+        #containerInstance ect_support.ect_support_db
+        #containerInstance ect_support.ect_support_materials
       }
 
       deploymentNode "NPQ Registrations Service" {
         deploymentNode "Docker Container" "" "Alpine Linux" {
-          containerInstance teacher_cpd.npq_registrations
+          softwareSystemInstance npq_registrations
         }
 
-        containerInstance teacher_cpd.npq_registrations_db
+        #containerInstance npq_registrations.npq_registrations_db
       }
+/*
+      deploymentNode "CPD Sandbox Service" {
+        deploymentNode "Docker Container" "" "Alpine Linux"  {
+          softwareSystemInstance cpd_management cpd_management_group
+        }
+
+        #containerInstance cpd_management.cpd_management_db cpd_management_group
+      }
+*/
     }
   }
 }
