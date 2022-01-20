@@ -70,36 +70,56 @@ jobs:
           contents: |
             attributes:
               - content
-            disconnected: false
+            disconnected: true
             filename: tmp/entity-relationship-diagram
             filetype: pdf
             indirect: true
-            inheritance: false
+            inheritance: true
             markup: true
-            notation: simple
+            notation: bachman
             orientation: vertical
-            polymorphism: false
+            polymorphism: true
             sort: false
             warn: true
-            title: Continuing Professional Development ERD
+            title: Teacher Continuing Professional Development - ERD
             exclude:
+              - Record
+              - ApplicationRecord
+              - DiscardableRecord
+              - Item
+              - ApiToken
+              - NPQRegistrationApiToken
+              - EngageAndLearnApiToken
+              - LeadProviderApiToken
+              - DataStudioApiToken
               - PaperTrail::Version
-              - AdminProfile
+              - ActiveRecord::SessionStore::Session
+              - ActiveStorage::Record
               - ActiveStorage::Blob
               - ActiveStorage::VariantRecord
               - ActiveStorage::Attachment
+              - Delayed::Backend::ActiveRecord::Job
+              - Analytics::BaseRecord
               - Feature
               - Feature::SelectedObject
               - DataStage::SchoolLink
               - DataStage::School
               - DataStage::SchoolChange
+              - ActionMailbox::Record
               - ActionMailbox::InboundEmail
+              - AdminProfile
               - AdditionalSchoolEmail
               - NominationEmail
               - PartnershipNotificationEmail
               - PartnershipCsvUpload
               - PrivacyPolicy::Acceptance
               - PrivacyPolicy
+              - Email
+              - Email::Association
+              - Owner
+              - EventLog
+              - ApiRequest
+              - ApiRequestAudit
             only: null
             only_recursion_depth: null
             prepend_primary: false
