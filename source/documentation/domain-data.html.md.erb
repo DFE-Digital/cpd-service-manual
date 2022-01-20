@@ -1,11 +1,47 @@
 ---
 title: Domain data
-weight: 30
+weight: 20
 ---
 
 # <%= current_page.data.title %>
 
-## Management Information Domain
+## High level Domain
+
+### Domain entities
+
+#### Lead providers
+including:
+
+  - SLA targets
+  - contract payment band rates
+  - NPQ course and ECF / NPQ associations
+
+#### Partnerships
+Including:
+
+  - deliver partners
+  - school cohort links
+
+#### Schools
+Including:
+
+  - further education institues
+  - cohort details (such as FIP or CIP programme choice)
+  - pupil premium numbers
+  - district sparsity
+
+*Note: School and local authority data is a subset of the GIAS dataset enriched with service specific information*
+
+#### Participation profiles
+Including:
+
+  - participant details
+  - ECF or NPQ validation data
+  - training declarations
+  - participantion status
+
+
+## Application entity diagram
 
 The service needs a certain level of information from schools and lead providers to ensure the correct amount of funding is being distributed at the appropriate time.
 
@@ -13,5 +49,3 @@ The following is a high level view of how the relationships of that data are str
 
 ![Entity relationship diagram](/images/entity-relationship-diagram.png)
 **fig 1:** Entity relationship diagram
-
-## Payments Domain
