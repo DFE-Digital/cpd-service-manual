@@ -56,7 +56,7 @@ If all goes well something like the following output will be displayed:
 == Inspect your site configuration at "http://Laptop.local:4567/__middleman", "http://192.168.0.8:4567/__middleman"
 ```
 
-You should now be able to view a live preview at http://localhost:4567.
+You should now be able to view a live preview at [http://localhost:4567].
 ```
 
 ## Publishing changes
