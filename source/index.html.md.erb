@@ -29,17 +29,16 @@ The processing of data for both ECF and NPQ is considered to have the lawful bas
   - [https://www.gov.uk/government/publications/induction-for-newly-qualified-teachers-nqts][8]
   - [https://www.gov.uk/government/publications/changes-to-statutory-induction-during-national-roll-out][9]
 
-## Users of the service
-There are four user groups that require access to the platform in order to perform tasks which contribute to the delivery of the public task.
+## External users of the service
+There are four primary user groups that require access to the platform in order to perform tasks which contribute to the delivery of the public task.
 
 | Type | Location | Description |
 |------|----------|-------------|
-| School Coordinators | External | Responsible for reporting on the school induction programme and any participants in training or induction activities |
-| Lead Providers | External | Responsible for delivering training and induction programmes and reporting details on participants progress within those programmes |
-| Participants | External | Recipients of training and induction programmes |
-| DfE Staff | Internal | Responsible for distribution of funds and reporting effectiveness of policies to ministers |
+| School Induction Tutors (SIT) | in school | Responsible for reporting on the school induction programme and any participants in training or induction activities |
+| Lead Providers (LP) | external | Responsible for delivering training and induction programmes and reporting details on participants progress within those programmes |
+| Participants | in school and external | Recipients of training and induction programmes |
 
-There are expected to be approximately 46k school users, 90k participants per cohort and 10 lead providers. School users and lead provider numbers will probably not grow much over time but the number of participants will grow by around 90k per cohort of which there are two expected per year.
+There are expected to be approximately 28k SITs, ~90k participants per year and 10 LPs. SITs and LP numbers will probably not grow much over time but the number of participants will grow by ~90k per year.
 
 If you wish to know more please read [a more detailed description of the service users][10]
 
@@ -48,17 +47,18 @@ If you wish to know more please read [a more detailed description of the service
 | Name | Role |
 |------|------|
 | Kate Thompson | Service Manager |
-| Andy Walsh | Lead Product Manager |
 | Amrit Malhi | Lead Delivery Manager |
+| TBC | Lead Product Manager |
 | Matt Smith | Technical Architect |
 
 ## Service Access
 
 | Component | URL |
 |-----------|-----|
-| Manage training portal | [manage-training-for-early-career-teachers.education.gov.uk][15] |
-| Learning portal | [ecf-engage-and-learn-staging.london.cloudapps.digital][16] |
-| Payment calculations | N/A |
+| Manage CPD | <https://manage-training-for-early-career-teachers.education.gov.uk> |
+| Manage CPD - Sandbox | <https://ecf-sandbox.london.cloudapps.digital/sandbox> |
+| Support ECTs | <https://support-early-career-teachers.education.gov.uk> |
+| Register NPQs | <https://register-for-national-professional-qualifications.education.gov.uk> |
 
 ## Target Architecture
 The CPD service comprises a centrally managed reporting platform for all of the interested parties, interactions and use cases supporting the public task.
@@ -68,15 +68,16 @@ The platform is developed in Ruby On Rails and is being deployed to GOV UK PaaS 
 If you wish to know more please read [a more detailed description of the technical architecture][12]
 
 ## Data
-The CPD service is primarily a reporting and funding platform. The service is an authorative datasource on the progress of participants through their training and induction programmes.
+The CPD service is primarily a reporting and funding platform. The service is an authorative datasource on the progress of participants through their training and induction programmes and the outcomes of those programmes. The highlevel entities that this service tracks are:
 
-  - Participants (ECTs, mentors and teachers) contact details
-  - School coordinator contact details
-  - Lead Provider organisation information including contact data
-  - Delivery Partner organisation information not contact data
+  - Participants (ECTs, mentors and NPQ trainees) contact details
+  - School induction coordinator contact details
+  - Lead provider organisation information including contact data
+  - Delivery Partner organisation information including contact data
   - The associations between schools, participants, Lead Providers and Delivery Partners
-  - Participant progression through the course materials trianing course or induction programme
-  - Participant activity records
+  - Participant progress through the course materials and training or induction programmes
+  - Participant training status (active, withdrawn, deferred etc)
+  - Participant outcomes for training or induction programmes
   - Data and metrics required for the justification of contracted payments
 
 If you wish to know more please read [a more detailed description of the domain data][11]
@@ -86,23 +87,29 @@ Schools users are asked to confirm control of the associated email account to ad
 
 Lead Providers have their own Learner Management Systems which integrate directly with the reporting APIs to report data for payment calculations and MI, this uses Bearer Authentication tokens managed by the service teams as they are contract managed. It is also possible for Lead Providers to submit report data via a management interface and they are asked to confirm control of the associated email account.
 
-Participants are invited to fill in more details about themselves to faciliate validation against the Database of Qualified Teachers (DQT) before their contact details are passed to the Lead Providers to faciliate onboarding.
+Participants contact details are passed to the Lead Providers as soon as they are gathered to faciliate onboarding, they are then are invited to fill in additional details about themselves to faciliate joining with the Teacher Regulation Agency Records inorder to verify their qualified teaching status, alerts and previous training history.
 
 If you wish to know more please read [a more detailed description of the authorisation processes][13]
 
 ## Hosting
-Hosting is with GOV UK PaaS
+Hosting is with GOV UK PaaS.
 
 If you wish to know more please read [a more detailed description of the deployment architecture][14]
 
 ## Testing Strategy
-If you wish to know more please read [a more detailed description of the end-to-end testing strategy][17]
+Each component is tested at various stages to verify that and change to the system does not break its support of the required user journeys and does not introduce anything that might go against WCAG 2.1 AA standards.
+
+If you wish to know more please read [a more detailed description of the end-to-end testing strategy][18]
 
 ## Security Assurance
-If you wish to know more please read [a more detailed description of our security assurance processes][18]
+Manual and automated processes are used to ensure that the deployed components are free from as many residual security risks as possible.
+
+If you wish to know more please read [a more detailed description of our security assurance processes][19]
 
 ## Performance Testing
-If you wish to know more please read [a more detailed description of our performance test strategy][19]
+Automated performance tests are run to simulate the most intensive user journeys on components.
+
+If you wish to know more please read [a more detailed description of our performance test strategy][20]
 
 [1]: https://www.gov.uk/government/organisations/department-for-education
 [2]: https://technical-guidance.education.gov.uk
@@ -121,9 +128,6 @@ If you wish to know more please read [a more detailed description of our perform
 [13]: /documentation/authorisation-processes.html
 [14]: /documentation/deployment-architecture.html
 
-[15]: https://manage-training-for-early-career-teachers.education.gov.uk
-[16]: https://ecf-engage-and-learn-staging.london.cloudapps.digital
-
-[17]: /documentation/testing-strategy.html
-[18]: /documentation/security-assurance.html
-[19]: /documentation/performance-testing.html
+[18]: /documentation/testing-strategy.html
+[19]: /documentation/security-assurance.html
+[20]: /documentation/performance-testing.html

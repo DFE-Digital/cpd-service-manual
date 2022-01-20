@@ -4,3 +4,7 @@ weight: 70
 ---
 
 # <%= current_page.data.title %>
+
+Performance tests are written in ruby and used to generate JMeter test scripts. The JMeter test scripts are run from a manual CI trigger against a docker compose network that deploys a component with its dependent data stores on the test machine and adds enough test data to enable the test scenarios. The metrics from the test runs is gathered together a a html report is generated and saved as an artifact of each run.
+
+To download the most recent report please go to the [performance testing action on the github repository][https://github.com/dfe-digital/early-career-teachers/actions/performance-testing]

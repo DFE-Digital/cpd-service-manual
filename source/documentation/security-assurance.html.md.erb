@@ -4,3 +4,5 @@ weight: 80
 ---
 
 # <%= current_page.data.title %>
+
+OWasp security tests are run against the staging service environment through a CI process triggered manually. Each run uses the Zapscan docker container spider to run a full scan of the UI interfaces and an API scan of endpoints detailed in the services swagger documentation.
