@@ -6,8 +6,8 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
-  schedule:
-    - cron: '0 12 * * *'
+  # schedule:
+    # - cron: '0 12 * * *'
 
 jobs:
   create-artifacts:
@@ -45,7 +45,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.85.0
         with:
-          ruby-version: '2.7.4'
+          bundler-cache: true
 
       - name: Install rails-erd
         run: |
