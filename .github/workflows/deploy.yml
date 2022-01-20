@@ -21,6 +21,10 @@ jobs:
       DB_PASSWORD: postgres
       DB_HOSTNAME: localhost
       DB_PORT: 5432
+      ANALYTICS_DB_USERNAME: postgres
+      ANALYTICS_DB_PASSWORD: postgres
+      ANALYTICS_DB_HOSTNAME: localhost
+      ANALYTICS_DB_PORT: 5432
 
     services:
       postgres:
