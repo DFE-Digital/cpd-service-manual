@@ -224,6 +224,10 @@ label = "Finance::Schedule";
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Finance::Schedule::ECF</font></td></tr>
 </table>
 >];
+"m_Finance::Schedule::Mentor" [color = "grey60", fontcolor = "grey60", label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Finance::Schedule::Mentor</font></td></tr>
+</table>
+>];
 "m_Finance::Schedule::NPQLeadership" [color = "grey60", fontcolor = "grey60", label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Finance::Schedule::NPQLeadership</font></td></tr>
 </table>
@@ -634,6 +638,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
 </table>
 >];
   "m_Finance::Schedule" -> "m_Finance::Schedule::ECF" [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
+  "m_Finance::Schedule" -> "m_Finance::Schedule::Mentor" [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   "m_Finance::Schedule" -> "m_Finance::Schedule::NPQLeadership" [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   "m_Finance::Schedule" -> "m_Finance::Schedule::NPQSpecialist" [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   "m_Finance::Schedule" -> "m_Finance::Schedule::NPQSupport" [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
@@ -647,9 +652,9 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_ParticipantProfile -> "m_ParticipantProfile::NPQ" [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   "m_ParticipantProfile::ECF" -> m_ECFParticipantEligibility [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "4"];
   "m_ParticipantProfile::ECF" -> m_ECFParticipantValidationData [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "4"];
-  m_Cohort -> "m_Finance::Schedule" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
-  "m_Finance::Schedule" -> "m_Finance::Milestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
-  "m_Finance::Schedule" -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "10"];
+  m_Cohort -> "m_Finance::Schedule" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
+  "m_Finance::Schedule" -> "m_Finance::Milestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
+  "m_Finance::Schedule" -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "11"];
   m_User -> m_ParticipantIdentity [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_User -> m_InductionCoordinatorProfile [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
   m_User -> m_School [style = "dotted", arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "4", constraint = "false"];
