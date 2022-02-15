@@ -1,0 +1,16 @@
+---
+title: DfE as data processor
+weight: 20
+---
+
+# <%= current_page.data.title %>
+
+When a participant registers for their induction or training they will be expected to provide enough details to match themselves against a record in the Database of Qualified Teachers ( DQT ). To do this the service is required to collect first name, last name, email address, TRN, date of birth and National Insurance Number.
+
+If the TRN matches a record in the DQT and at least three out of the other four items match then the TRN can be considered correct and only the name, email address and TRN will be retained. If there is no match the participant will be asked to correct their details by comparing them to the teacher services portal themselves.
+
+<ul>
+<% sub_pages(current_page.url).each do |resource| %>
+	<li><%= link_to resource.data.title, resource.url %></li>
+<% end %>
+</ul>

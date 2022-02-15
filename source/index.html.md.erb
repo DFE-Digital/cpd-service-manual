@@ -14,20 +14,34 @@ It complements the [DfE Technical Guidance][2], the [GOV UK Service Manual][3] a
 It is inspired by the [GDS Way][5] and the [Ministry of Justice Technical Guidance][6].
 
 ## Overview
+
 Continuing Professional Development (CPD) is owned and operated by the Developing Teachers and Leaders Division (DTLD) a part of the Teacher Workforce Directorate (TWD) within DfE.
 
-CPD encompasses two teacher initiatives namely, Early Career Framework (ECF) and National Professional Qualifications (NPQ) and - as agreed with Mark Wood of the DfE Data Protection Assurance Team - is a national rollout (NRO) aimed at supporting teachers, schools, DfE and providers through the teacher training lifecycle. The digital service will enable users to validate their details against the Database of Qualified Teachers, choose their provision/qualification, report partnerships between providers and schools and enable participants to be set up on the frameworks.
+CPD encompasses two teacher initiatives namely, Early Career Framework (ECF) and National Professional Qualifications (NPQ) and - as agreed with Mark Wood of the DfE Data Protection Assurance Team - is a national rollout (NRO) aimed at supporting teachers, schools, DfE and providers through the teacher training lifecycle.
 
-The CPD service is designed to support all future initiatives but initially will only support:
+The objective of the CPD reforms is to raise teacher quality by strengthening support for teachers in the early part and future progression of their careers. In turn, it is expected that this will improve teacher retention.
 
-  - Early Career Framework (ECF) Induction programmes (Core Induction Program - CIP and Full Induction Program - FIP)
-  - National Professional Qualifications (NPQ)
+The flagship reform is a wider overhaul of teacher CPD. From the new ITT Core Content Framework to the suite of Specialist and Leadership NPQs, DfE is revolutionising teacher training and development by defining training content in detailed frameworks and designing delivery models to maximise fidelity to the underlying frameworks.
 
-The processing of data for both ECF and NPQ is considered to have the lawful basis that they are both Public tasks (Article 6 (1)(e)) so that the processing is necessary for the organisation to perform the task in the public interest or for the organisation’s official functions and the task or function has a clear basis in law as shown by the following;
+As with the suite of CPD reforms, it is important that the benefits are felt nationwide, with a universal national offer targeted disproportionately towards schools serving disadvantaged communities.
 
-  - [https://www.legislation.gov.uk/uksi/2012/1115/contents/made][7]
-  - [https://www.gov.uk/government/publications/induction-for-newly-qualified-teachers-nqts][8]
-  - [https://www.gov.uk/government/publications/changes-to-statutory-induction-during-national-roll-out][9]
+### The CPD digital service
+
+The digtial service enables users to validate their details against the Teacher Regulation Agency records, choose their provision/qualification, report partnerships between providers and schools and enable participants to be set up on the frameworks.
+
+It is designed to support all future initiatives but initially will only support:
+
+- Early Career Framework (ECF) Induction programmes (Core Induction Program - CIP and Full Induction Program - FIP)
+- National Professional Qualifications (NPQ)
+
+### How the CPD digtial service will enable the policy
+
+The digital service is a reporting platform designed to collect initial contact data ( name, email address, school ) for School Induction Coordinators and participants ( Trainees, Early Career Teachers and Mentors ) from schools to pass on to Lead Providers who will use their network of Delivery Partners to deliver the induction or training courses chosen.
+
+The participants will then be engaged via email using the contact data and asked to enter their TRN. Additional information (Date of Birth, National Insurance Number) needs to be collected temporarily in order to validate the TRN against the DQT records held by the TRA so that the participants achievements and awards can be logged against the correct records.
+
+The participants QTS status will be analysed from the DQT along with the pupil premium and sparsity status of their school to determine whether funding can be claimed by the Lead Providers from DfE for each participant.
+Lead Providers will declare when each participant reaches a milestone in their training or induction which will be validated against the participant records held to determine if the declaration is able to release funding to the Lead Provider.
 
 ## External users of the service
 There are four primary user groups that require access to the platform in order to perform tasks which contribute to the delivery of the public task.
@@ -46,9 +60,11 @@ If you wish to know more please read [a more detailed description of the service
 
 | Name | Role |
 |------|------|
-| Kate Thompson | Service Manager |
-| Amrit Malhi | Lead Delivery Manager |
-| TBC | Lead Product Manager |
+| Kate Thompson / Stacy Singleton | Deputy Service Owner |
+| TBA | Lead Delivery Manager |
+| Fred Constable | Senior User Researcher |
+| Gemma Say | Service Designer |
+| James Rose | Technical Lead |
 | Matt Smith | Technical Architect |
 
 ## Service Access
@@ -56,11 +72,18 @@ If you wish to know more please read [a more detailed description of the service
 | Component | URL |
 |-----------|-----|
 | Manage CPD | <https://manage-training-for-early-career-teachers.education.gov.uk> |
-| Manage CPD - Sandbox | <https://ecf-sandbox.london.cloudapps.digital/sandbox> |
-| Support ECTs | <https://support-early-career-teachers.education.gov.uk> |
-| Register NPQs | <https://register-for-national-professional-qualifications.education.gov.uk> |
+| Support ECTs | <https://support-for-early-career-teachers.education.gov.uk> |
+| Register NPQs | <https://register-national-professional-qualifications.education.gov.uk> |
 
-## Target Architecture
+### Sandbox
+
+| Component | URL |
+|-----------|-----|
+| Manage CPD | <https://ecf-sandbox.london.cloudapps.digital/sandbox> |
+| Register NPQs | <https://npq-registration-sandbox.london.cloudapps.digital> |
+
+## Technical Architecture
+
 The CPD service comprises a centrally managed reporting platform for all of the interested parties, interactions and use cases supporting the public task.
 
 The platform is developed in Ruby On Rails and is being deployed to GOV UK PaaS as a single network of containerised applications supported by Managed PostgreSQL and Redis DBs. Only UIs and APIs will be internet facing and all data access will be through those interfaces.
@@ -68,6 +91,13 @@ The platform is developed in Ruby On Rails and is being deployed to GOV UK PaaS 
 If you wish to know more please read [a more detailed description of the technical architecture][12]
 
 ## Data
+
+The processing of data for both ECF and NPQ is considered to have the lawful basis that they are both Public tasks (Article 6 (1)(e)) so that the processing is necessary for the organisation to perform the task in the public interest or for the organisation’s official functions and the task or function has a clear basis in law as shown by the following;
+
+  - [https://www.legislation.gov.uk/uksi/2012/1115/contents/made][7]
+  - [https://www.gov.uk/government/publications/induction-for-newly-qualified-teachers-nqts][8]
+  - [https://www.gov.uk/government/publications/changes-to-statutory-induction-during-national-roll-out][9]
+
 The CPD service is primarily a reporting and funding platform. The service is an authorative datasource on the progress of participants through their training and induction programmes and the outcomes of those programmes. The highlevel entities that this service tracks are:
 
   - Participants (ECTs, mentors and NPQ trainees) contact details
@@ -83,30 +113,35 @@ The CPD service is primarily a reporting and funding platform. The service is an
 If you wish to know more please read [a more detailed description of the domain data][11]
 
 ## Authorisation
+
 Schools users are asked to confirm control of the associated email account to add participants and update their contact details.
 
 Lead Providers have their own Learner Management Systems which integrate directly with the reporting APIs to report data for payment calculations and MI, this uses Bearer Authentication tokens managed by the service teams as they are contract managed. It is also possible for Lead Providers to submit report data via a management interface and they are asked to confirm control of the associated email account.
 
 Participants contact details are passed to the Lead Providers as soon as they are gathered to faciliate onboarding, they are then are invited to fill in additional details about themselves to faciliate joining with the Teacher Regulation Agency Records inorder to verify their qualified teaching status, alerts and previous training history.
 
-If you wish to know more please read [a more detailed description of the authorisation processes][13]
+If you wish to know more please read [a more detailed description of the lead provider quthentication process][13]
 
 ## Hosting
+
 Hosting is with GOV UK PaaS.
 
 If you wish to know more please read [a more detailed description of the deployment architecture][14]
 
 ## Testing Strategy
+
 Each component is tested at various stages to verify that and change to the system does not break its support of the required user journeys and does not introduce anything that might go against WCAG 2.1 AA standards.
 
 If you wish to know more please read [a more detailed description of the end-to-end testing strategy][18]
 
 ## Security Assurance
+
 Manual and automated processes are used to ensure that the deployed components are free from as many residual security risks as possible.
 
 If you wish to know more please read [a more detailed description of our security assurance processes][19]
 
 ## Performance Testing
+
 Automated performance tests are run to simulate the most intensive user journeys on components.
 
 If you wish to know more please read [a more detailed description of our performance test strategy][20]
@@ -122,10 +157,10 @@ If you wish to know more please read [a more detailed description of our perform
 [8]: https://www.gov.uk/government/publications/induction-for-newly-qualified-teachers-nqts
 [9]: https://www.gov.uk/government/publications/changes-to-statutory-induction-during-national-roll-out
 
-[10]: /documentation/service-users.html
-[11]: /documentation/domain-data.html
+[10]: /service-users/index.html
+[11]: /data/index.html
 [12]: /technical-architecture/index.html
-[13]: /documentation/authorisation-processes.html
+[13]: /data/data-processor/lead-provider-authentication.html
 [14]: /documentation/deployment-architecture.html
 
 [18]: /documentation/testing-strategy.html
