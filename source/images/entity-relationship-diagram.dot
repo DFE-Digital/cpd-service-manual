@@ -722,10 +722,12 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_LeadProvider -> m_LeadProviderCip [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_LeadProvider -> m_CoreInductionProgramme [style = "dotted", arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1", constraint = "false"];
   m_LeadProvider -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
-  m_LeadProvider -> "m_Finance::Statement::ECF" [style = "dotted", arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1", constraint = "false"];
+  m_LeadProvider -> "m_Finance::Statement::ECF" [style = "dotted", arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "3", constraint = "false"];
   m_InductionProgramme -> m_InductionRecord [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
   "m_Finance::Schedule" -> m_InductionRecord [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_CpdLeadProvider -> m_NPQLeadProvider [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "2"];
+  m_CpdLeadProvider -> "m_Finance::Statement::ECF" [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
+  m_CpdLeadProvider -> "m_Finance::Statement::NPQ" [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
   m_School -> m_SchoolLocalAuthorityDistrict [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
   m_LocalAuthorityDistrict -> m_SchoolLocalAuthorityDistrict [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_DeliveryPartner -> m_ProviderRelationship [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
@@ -747,6 +749,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_SchoolLink -> m_School [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "5"];
   m_NPQLeadProvider -> "m_ParticipantProfile::NPQ" [style = "dotted", arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1", constraint = "false"];
   m_NPQLeadProvider -> m_User [style = "dotted", arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1", constraint = "false"];
+  m_NPQLeadProvider -> "m_Finance::Statement::NPQ" [style = "dotted", arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "3", constraint = "false"];
   m_Network -> m_School [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "2"];
   "m_Finance::Schedule" -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_School -> m_School [style = "dotted", arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "2", constraint = "false"];
