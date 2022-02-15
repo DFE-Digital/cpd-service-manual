@@ -1,5 +1,7 @@
-require "webmock/rspec"
+# frozen_string_literal: true
 
-require "govuk_tech_docs"
+require 'webmock/rspec'
 
-require_relative "../lib/requires"
+require 'govuk_tech_docs'
+
+require_relative '../lib/requires'

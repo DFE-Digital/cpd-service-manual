@@ -1,14 +1,16 @@
-require "octokit"
+# frozen_string_literal: true
 
-require "faraday-http-cache"
-require "faraday_middleware"
+require 'octokit'
+
+require 'faraday-http-cache'
+require 'faraday_middleware'
 
 class GitHubRepoFetcher
   include Singleton
 
   def docs(repo_name:, path_in_repo:, path_prefix:, service_name:, ignore_files: [])
     directory_contents = client.contents(repo_name, path: path_in_repo)
-    markdown_files = directory_contents.select { |doc| doc.name.end_with?(".md") && !doc.name.in?(ignore_files) }
+    markdown_files = directory_contents.select { |doc| doc.name.end_with?('.md') && !doc.name.in?(ignore_files) }
 
     pages = markdown_files.map do |file|
       contents = HTTP.get_cached(file.download_url)
@@ -22,16 +24,16 @@ class GitHubRepoFetcher
           locals: {
             service_name: service_name,
             title: title,
-            external_doc_contents: ExternalDoc.parse(contents, repo_name: repo_name, path: file.path),
+            external_doc_contents: ExternalDoc.parse(contents, repo_name: repo_name, path: file.path)
           },
           data: {
             # Title in search results
             category: service_name,
             original_title: title,
             title: "#{service_name} - #{title}",
-            source_url: file.html_url,
-          },
-        },
+            source_url: file.html_url
+          }
+        }
       }
     end
 
@@ -47,7 +49,7 @@ class GitHubRepoFetcher
     end
   end
 
-private
+  private
 
   def client
     @client ||= begin
@@ -61,7 +63,7 @@ private
 
       Octokit.middleware = stack
 
-      github_client = Octokit::Client.new(access_token: ENV["GITHUB_TOKEN"])
+      github_client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
       github_client.auto_paginate = true
       github_client
     end

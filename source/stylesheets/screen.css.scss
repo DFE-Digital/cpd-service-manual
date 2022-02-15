@@ -1,1 +1,10 @@
 @import "govuk_tech_docs";
+
+code.mermaid {
+  display: block;
+  background: #f9f9f8;
+  padding: 15px;
+  overflow: auto;
+  position: relative;
+  border: 1px solid #bfc1c3;
+}

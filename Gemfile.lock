@@ -8,6 +8,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    asciidoctor (2.0.17)
+    asciidoctor-plantuml (0.0.15)
+      asciidoctor (>= 1.5.6, < 3.0.0)
     ast (2.4.2)
     autoprefixer-rails (9.8.6.5)
       execjs
@@ -271,6 +274,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  asciidoctor-plantuml (~> 0.0.15)
   capybara
   faraday-http-cache
   faraday_middleware

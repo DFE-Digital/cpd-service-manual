@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HTTP
   def self.get_cached(url)
     cache.fetch(url, expires_in: 1.hour) do
@@ -6,7 +8,7 @@ module HTTP
   end
 
   def self.cache
-    @cache ||= ActiveSupport::Cache::FileStore.new(".cache")
+    @cache ||= ActiveSupport::Cache::FileStore.new('.cache')
   end
 
   def self.get(url)
