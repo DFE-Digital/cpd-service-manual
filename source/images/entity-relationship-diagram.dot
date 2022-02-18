@@ -286,6 +286,7 @@ m_InductionRecord [label = <<table border="0" align="center" cellspacing="0.5" c
   <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">datetime ∗</font></td></tr>
   <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="training_status">training_status <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
 </table>
 >];
 m_LeadProvider [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
