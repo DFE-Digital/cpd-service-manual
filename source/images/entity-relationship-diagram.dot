@@ -344,6 +344,9 @@ m_NPQApplication [label = <<table border="0" align="center" cellspacing="0.5" ce
   <tr><td align="left" width="130" port="nino">nino <font face="Arial Italic" color="grey60">text</font></td></tr>
   <tr><td align="left" width="130" port="lead_provider_approval_status">lead_provider_approval_status <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
   <tr><td align="left" width="130" port="school_ukprn">school_ukprn <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="works_in_school">works_in_school <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="employer_name">employer_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="employment_role">employment_role <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
 m_NPQContract [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
