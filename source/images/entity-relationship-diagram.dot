@@ -519,6 +519,7 @@ m_Partnership [label = <<table border="0" align="center" cellspacing="0.5" cellp
   <tr><td align="left" width="130" port="challenge_deadline">challenge_deadline <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="pending">pending <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
   <tr><td align="left" width="130" port="report_id">report_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="relationship">relationship <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
 </table>
 >];
 m_ProfileValidationDecision [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
