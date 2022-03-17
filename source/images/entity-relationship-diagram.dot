@@ -166,6 +166,8 @@ m_ECFParticipantEligibility [label = <<table border="0" align="center" cellspaci
   <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="reason">reason <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="different_trn">different_trn <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="no_induction">no_induction <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="exempt_from_induction">exempt_from_induction <font face="Arial Italic" color="grey60">boolean</font></td></tr>
 </table>
 >];
 m_ECFParticipantValidationData [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -472,8 +474,8 @@ m_ParticipantProfile [label = <<table border="0" align="center" cellspacing="0.5
   <tr><td align="left" width="130" port="request_for_details_sent_at">request_for_details_sent_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="training_status">training_status <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="profile_duplicity">profile_duplicity <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
-  <tr><td align="left" width="130" port="notes">notes <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="start_term">start_term <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="notes">notes <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
 subgraph cluster_ParticipantProfile {
