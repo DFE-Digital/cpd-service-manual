@@ -1,10 +1,152 @@
 ---
-title: Participant identification
+title: TRA record identification
 weight: 30
 ---
 
 # <%= current_page.data.title %>
 
-When a participant registers for their induction or training they will be expected to provide enough details to match themselves against a record in the Database of Qualified Teachers ( DQT ). To do this the service is required to collect first name, last name, email address, TRN, date of birth and National Insurance Number.
+In order for external systems to record information such as training progress or outcomes against a participants CPD records a unique identifier (UID) is created. The UID identifier is created by the CPD service.
 
-If the TRN matches a record in the DQT and at least three out of the other four items match then the TRN can be considered correct and only the name, email address and TRN will be retained. If there is no match the participant will be asked to correct their details by comparing them to the teacher services portal themselves.
+The Teacher Regulation Agency (TRA) has its own UID called a Teacher Reference Number (TRN). As the TRA is currently responsible for recording the outcomes of inductions the Lead Providers and Appropriate Bodies need the TRN.
+
+In the Early Roll out of ECF and NPQs it was established that the TRN is too basic a format to collect accurately so a decision was made for the digital service to collect and validate the TRN and make available to Lead Providers systems once validated.
+
+## Overview
+
+When a participants induction or training is reported the service collects enough details to match a record in the Teacher Regulation Agency (TRA) records. To do this the service is required to collect first name, last name, email address, TRN, date of birth and optionally National Insurance Number (NINo).
+
+If the TRN or NINo plus date of birth matches a TRA record and at least three out of first name, date of birth, TRN and NINo match then the TRN is considered to have been entered correctly and only the full name, email address and TRN needs to be retained within the service.
+
+If there is no match the participant will be asked to correct their details by comparing them to the [teacher services portal](https://teacherservices.education.gov.uk/SelfService/Login) themselves or making a request of the TRA to remind them of their TRN.
+
+## The process of identifying a TRA record for ECF
+
+The following diagram and details helps to explain the processes and systems involved in identifying a TRA record for a participant of the ECF induction programme.
+
+```mermaid
+sequenceDiagram
+    Actor SIT as School induction tutor
+    Actor P as Participant
+    participant mECT as Manage ECF
+    participant mCPD as Manage CPD
+    participant Notify as GOV UK Notify
+    participant TRA as TRA records
+    participant API as Lead Provider API
+    Actor LP as Lead Provider
+
+    SIT ->> mECT: Registers participant
+    mECT ->> mCPD: Stores contact details
+    mCPD ->>+ Notify: Request invitation sent
+    Notify -->>- P: Invitation sent
+
+    loop Periodically
+      LP ->> API: Contact details (name, email) collected
+      API ->> mCPD: Retrieve contact details
+    end
+
+    P ->> mECT: Provides teacher record details
+    mCPD ->>+ TRA: Validate teacher record details
+    TRA -->>- mCPD: Validation result
+    mECT ->> mCPD: Stores teacher record details
+
+    loop Periodically
+      LP ->> API: teacher details (TRN) collected
+      API ->> mCPD: Retrieve teacher details
+    end
+
+    LP -->> P: Welcome email sent
+```
+
+#### The process in detail
+
+1. the School induction tutor will register contact details for each induction participant in the cohort, which will include name and email address.
+2. the contact details are stored by the service to facilitate communications with participants when required
+3. an API call with the contact details is made to the GOV UK Notify API service to initiate the invitation email
+4. a GOV UK branded invitation email with a one-time use web link is sent to the participants email address
+5.
+6. the participant follows a the web link in the invitation email and is asked to complete the teacher record details
+7. the TRN or NINo plus DoB are submitted to the TRA API to validate the teacher record details
+8. the TRA API returns a matched record and the other teacher record details are checked
+9. the teacher record details are stored by the service to facilitate manual validation checks if a match is not made
+
+### Simplifying the process for ECF
+
+When a participant moves school during the induction period or a School Induction Tutor has the correct details to hand - such as during the on boarding process - a simpler process is enabled.
+
+The following diagram and details helps to explain the simpler processes and systems involved.
+
+```mermaid
+sequenceDiagram
+    Actor SIT as School induction tutor
+    participant mECT as Manage ECF
+    participant mCPD as Manage CPD
+    participant Notify as GOV UK Notify
+    participant TRA as TRA records
+    participant API as Lead Provider API
+    Actor LP as Lead Provider
+
+    SIT ->> mECT: Provides teacher record details
+    mECT ->> mCPD: Stores contact details
+
+    loop Periodically
+      LP ->> API: Contact details (name, email) collected
+      API ->> mCPD: Retrieve contact details
+    end
+
+    mCPD ->>+ TRA: Validate teacher record details
+    TRA -->>- mCPD: Validation result
+    mECT ->> mCPD: Stores teacher record details
+
+    loop Periodically
+      LP ->> API: teacher details (TRN) collected
+      API ->> mCPD: Retrieve teacher details
+    end
+```
+
+## The process of identifying a TRA record for NPQs
+
+The following diagram and details helps to explain the processes and systems involved in identifying a TRA record for a participant of the NPQ training programme.
+
+```mermaid
+sequenceDiagram
+    Actor P as Participant
+    participant mECT as Manage ECF
+    participant mCPD as Manage CPD
+    participant Notify as GOV UK Notify
+    participant TRA as TRA records
+    participant API as Lead Provider API
+    Actor LP as Lead Provider
+
+    P ->> mECT: Provides contact details
+    mECT ->> mCPD: Stores contact details
+    mCPD ->>+ Notify: Request email verification sent
+    Notify -->>- P: Email verification sent
+    P ->> mECT: Provides email verification code
+    P ->> mECT: Provides teacher record details
+    mECT ->> mCPD: Stores contact details
+
+    loop Periodically
+      LP ->> API: Contact details (name, email) collected
+      API ->> mCPD: Retrieve contact details
+    end
+
+    mCPD ->>+ TRA: Validate teacher record details
+    TRA -->>- mCPD: Validation result
+    mECT ->> mCPD: Stores teacher record details
+
+    loop Periodically
+      LP ->> API: teacher details (TRN) collected
+      API ->> mCPD: Retrieve teacher details
+    end
+```
+
+#### The process in detail
+
+1. the School induction tutor will register contact details for each induction participant in the cohort, which will include name and email address.
+2. the contact details are stored by the service to facilitate communications with participants when required
+3. an API call with the contact details is made to the GOV UK Notify API service to instigate the invitation email
+4. a GOV UK branded invitation email with a one-time use web link is sent to the participants email address
+5. the participant follows a the web link in the invitation email and is asked to complete the teacher record details
+6. the TRN or NINo plus DoB are submitted to the TRA API to validate the teacher record details
+7. the TRA API returns a matched record and the other teacher record details are checked
+8. the teacher record details are stored by the service to facilitate manual validation checks if a match is not made

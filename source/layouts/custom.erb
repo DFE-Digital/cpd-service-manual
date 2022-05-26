@@ -8,5 +8,41 @@
   <%= html %>
 
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>mermaid.initialize({startOnLoad:true});</script>
+  <script>
+      mermaid.initialize({
+          theme: 'default',
+          themeVariables: {
+              background: '#ffffff',
+              primaryColor: '#f3f2f1',
+              fontFamily: 'sans-serif',
+              fontSize: '13px',
+              primaryBorderColor: '#b1b4b6',
+              primaryTextColor: '#0b0c0c',
+              textColor: '#505a5f',
+              activationBkgColor: '#505a5f',
+              activationBorderColor: '#505a5f',
+          },
+          logLevel: 'fatal',
+          securityLevel: 'strict',
+          startOnLoad: true,
+          arrowMarkerAbsolute: false,
+          sequence: {
+              diagramMarginX: 10,
+              diagramMarginY: 10,
+              actorMargin: 10,
+              width: 150,
+              height: 65,
+              boxMargin: 10,
+              boxTextMargin: 5,
+              noteMargin: 10,
+              messageMargin: 35,
+              messageAlign: 'center',
+              mirrorActors: true,
+              bottomMarginAdj: 1,
+              useMaxWidth: true,
+              rightAngles: false,
+              showSequenceNumbers: true
+          }
+      });
+  </script>
 <% end %>
