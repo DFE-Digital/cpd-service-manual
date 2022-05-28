@@ -46,6 +46,29 @@ label = "Analytics";
   <tr><td align="left" width="130" port="external_id">external_id <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
+"m_Analytics::ECFPartnership" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Analytics::ECFPartnership</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="partnership_id">partnership_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="school_id">school_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="school_name">school_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="school_urn">school_urn <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="lead_provider_id">lead_provider_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="lead_provider_name">lead_provider_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="cohort_id">cohort_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="cohort">cohort <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="delivery_partner_id">delivery_partner_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="delivery_partner_name">delivery_partner_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="challenged_at">challenged_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="challenge_reason">challenge_reason <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="challenge_deadline">challenge_deadline <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="pending">pending <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="report_id">report_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="relationship">relationship <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+</table>
+>];
 "m_Analytics::ECFSchool" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Analytics::ECFSchool</font></td></tr>
 </table>
