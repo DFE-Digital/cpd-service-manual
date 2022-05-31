@@ -463,7 +463,6 @@ m_NPQContract [label = <<table border="0" align="center" cellspacing="0.5" cellp
   <tr><td align="left" width="130" port="raw">raw <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
   <tr><td align="left" width="130" port="version">version <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="recruitment_target">recruitment_target <font face="Arial Italic" color="grey60">integer</font></td></tr>
-  <tr><td align="left" width="130" port="course_identifier">course_identifier <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="service_fee_installments">service_fee_installments <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="service_fee_percentage">service_fee_percentage <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="per_participant">per_participant <font face="Arial Italic" color="grey60">decimal</font></td></tr>
@@ -872,6 +871,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_Cohort -> m_Partnership [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_DeliveryPartner -> m_Partnership [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
   m_Cohort -> m_NPQContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
+  m_NPQCourse -> m_NPQContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_TeacherProfile -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
   m_ParticipantIdentity -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
   m_ParticipantProfile -> m_ProfileValidationDecision [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "5"];
