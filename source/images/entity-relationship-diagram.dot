@@ -577,8 +577,8 @@ m_ParticipantProfile [label = <<table border="0" align="center" cellspacing="0.5
   <tr><td align="left" width="130" port="request_for_details_sent_at">request_for_details_sent_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="training_status">training_status <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="profile_duplicity">profile_duplicity <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
-  <tr><td align="left" width="130" port="start_term">start_term <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="notes">notes <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="start_term">start_term <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
 </table>
 >];
 subgraph cluster_ParticipantProfile {
