@@ -198,7 +198,7 @@ jobs:
       run: make build
 
     - name: Set environment variables (Push)
-      if: ${{ github.event_name == 'push' }}
+      if: ${{ github.event_name != 'pull_request' }}
       run: |
         SPACE=earlycareers-framework-dev
         echo "SPACE=${SPACE}" >> $GITHUB_ENV
