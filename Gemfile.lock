@@ -30,8 +30,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    commonmarker (0.21.2)
-      ruby-enum (~> 0.5)
+    commonmarker (0.23.5)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
@@ -44,7 +43,7 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.10)
     contracts (0.13.0)
     crack (0.4.5)
       rexml
@@ -160,12 +159,12 @@ GEM
       middleman-core (>= 3.2)
       rouge (~> 3.2)
     mini_mime (1.1.0)
-    mini_portile2 (2.5.0)
+    mini_portile2 (2.8.0)
     minitest (5.14.4)
     multi_json (1.15.0)
     multipart-post (2.1.1)
-    nokogiri (1.11.2)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     octokit (4.21.0)
       faraday (>= 0.9)
@@ -185,7 +184,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3.1)
     rack-livereload (0.3.17)
       rack
@@ -238,8 +237,6 @@ GEM
       rubocop
     rubocop-rspec (1.42.0)
       rubocop (>= 0.87.0)
-    ruby-enum (0.9.0)
-      i18n
     ruby-graphviz (1.2.5)
       rexml
     ruby-progressbar (1.11.0)
