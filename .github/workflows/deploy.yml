@@ -70,17 +70,17 @@ jobs:
           contents: |
             attributes:
               - content
-            disconnected: true
+            disconnected: false
             filename: tmp/entity-relationship-diagram
             filetype: pdf
-            indirect: true
-            inheritance: true
+            indirect: false
+            inheritance: false
             markup: true
             notation: bachman
             orientation: vertical
-            polymorphism: true
-            sort: false
-            warn: true
+            polymorphism: false
+            sort: true
+            warn: false
             title: Teacher Continuing Professional Development - ERD
             exclude:
               - Record
@@ -120,11 +120,28 @@ jobs:
               - EventLog
               - ApiRequest
               - ApiRequestAudit
+              - InductionCoordinatorProfile
+              - FinanceProfile
+              - LeadProviderProfile
+              - DeliveryPartnerProfile
+              - InductionCoordinatorProfilesSchool
+              - User
+              - Finance::Statement::ECF::Paid
+              - Finance::Statement::ECF::Payable
+              - Finance::Statement::NPQ::Paid
+              - Finance::Statement::NPQ::Payable
+              - Finance::Schedule::NPQLeadership
+              - Finance::Schedule::NPQSpecialist
+              - Finance::Schedule::NPQSupport
+              - Finance::Schedule::ECF
+              - Finance::Schedule::Mentor
+              - Finance::Schedule::NPQ
+              - Finance::Schedule::NPQEhco
             only: null
             only_recursion_depth: null
             prepend_primary: false
             cluster: true
-            splines: spline
+            splines: curved
           write-mode: overwrite
 
       - name: Create ERD DOT
