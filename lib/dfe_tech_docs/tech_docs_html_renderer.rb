@@ -9,8 +9,8 @@ module DfETechDocs
     def block_code(code, language)
       case language
       when 'mermaid'
-        fragment = Nokogiri::HTML::DocumentFragment.parse('')
-        mermaid = Nokogiri::XML::Node.new 'code', fragment
+        document = Nokogiri::XML::DocumentFragment.parse("<code></code>")
+        mermaid = document.at_css("code")
         mermaid['class'] = language
         mermaid.content = code
         mermaid.to_html
