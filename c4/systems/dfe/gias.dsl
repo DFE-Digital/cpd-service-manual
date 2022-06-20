@@ -1,5 +1,5 @@
-gias = softwareSystem "Get information about schools" "" "Dynamics365" {
+gias = softwareSystem "Get Information About Schools" "" "Dynamics365" {
   api = container "API" "" "SFTP Server" {
-    schools_information = component "Get information about schools Data file" "" "CSV Extract"
+    schools_information = component "Get Information About Schools Data file" "" "CSV Extract"
   }
 }
