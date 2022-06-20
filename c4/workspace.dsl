@@ -57,7 +57,7 @@ workspace {
     }
 
     branding {
-      logo https://avatars.githubusercontent.com/u/30029772?s=200&v=4
+      logo ./images/department-brand.png
       # font "GDS Transport" https://example/com/font
     }
 
