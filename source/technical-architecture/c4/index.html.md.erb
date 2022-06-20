@@ -6,7 +6,8 @@ weight: 100
 # <%= current_page.data.title %>
 
 <ul>
-<% sub_pages(current_page.url).each do |resource| %>
-	<li><%= link_to resource.data.title, resource.url %></li>
-<% end %>
+	<li><%= link_to "System context", "/technical-architecture/c4/SystemContext/" %></li>
+	<li><%= link_to "Container context", "/technical-architecture/c4/Container/" %></li>
+	<li><%= link_to "Component context", "/technical-architecture/c4/Component/" %></li>
+	<li><%= link_to "Deployment context", "/technical-architecture/c4/Deployment/" %></li>
 </ul>

@@ -1,0 +1,12 @@
+---
+title: Deployment Context
+weight: 40
+---
+
+# <%= current_page.data.title %>
+
+<ul>
+<% sub_pages(current_page.url).each do |resource| %>
+	<li><%= link_to resource.data.title, resource.url %></li>
+<% end %>
+</ul>
