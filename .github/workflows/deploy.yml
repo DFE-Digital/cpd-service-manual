@@ -212,6 +212,15 @@ jobs:
         bundler-cache: true
         ruby-version: '3.1.2'
 
+    - name: Validate C4 Models
+      run: ./bin/c4-validate.sh
+
+    - name: Generate C4 Views
+      run: ./bin/c4-to-plantuml.sh
+
+    - name: Generate Images and documents for C4 views
+      run: ./bin/plantuml-to-png.sh
+
     - name: Build docs with middleman
       run: make build
 
