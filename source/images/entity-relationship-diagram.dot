@@ -155,6 +155,7 @@ label = "Finance";
   <tr><td align="left" width="130" port="original_value">original_value <font face="Arial Italic" color="grey60">decimal</font></td></tr>
   <tr><td align="left" width="130" port="output_fee">output_fee <font face="Arial Italic" color="grey60">boolean</font></td></tr>
   <tr><td align="left" width="130" port="payment_date">payment_date <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="reconcile_amount">reconcile_amount <font face="Arial Italic" color="grey60">decimal ∗</font></td></tr>
 </table>
 >];
 "m_Finance::StatementLineItem" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -558,6 +559,6 @@ m_TeacherProfile [label = <<table border="0" align="center" cellspacing="0.5" ce
   m_ParticipantIdentity -> m_SchoolMentor [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_Network -> m_School [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "2"];
   m_Cohort -> "m_Finance::Statement" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
-  "m_Finance::Statement" -> "m_Finance::StatementLineItem" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "15"];
+  "m_Finance::Statement" -> "m_Finance::StatementLineItem" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "22"];
   "m_Finance::Milestone" -> "m_Finance::ScheduleMilestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
 }
