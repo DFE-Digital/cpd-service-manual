@@ -14,6 +14,15 @@ edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "
 rankdir = "LR";
 label = "Teacher Continuing Professional Development - ERD\n\n";
 splines = "curved";
+m_AppropriateBody [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">AppropriateBody</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="body_type">body_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+</table>
+>];
 m_CallOffContract [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">CallOffContract</font></td></tr>
 </table>
@@ -449,6 +458,7 @@ m_SchoolCohort [label = <<table border="0" align="center" cellspacing="0.5" cell
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="appropriate_body_unknown">appropriate_body_unknown <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
   <tr><td align="left" width="130" port="estimated_mentor_count">estimated_mentor_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="estimated_teacher_count">estimated_teacher_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="induction_programme_choice">induction_programme_choice <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
@@ -555,6 +565,7 @@ m_TeacherProfile [label = <<table border="0" align="center" cellspacing="0.5" ce
   m_School -> m_SchoolMentor [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_Cohort -> m_SchoolCohort [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_CoreInductionProgramme -> m_SchoolCohort [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
+  m_AppropriateBody -> m_SchoolCohort [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
   m_SchoolCohort -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "3"];
   m_ParticipantIdentity -> m_SchoolMentor [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_School -> m_TeacherProfile [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
