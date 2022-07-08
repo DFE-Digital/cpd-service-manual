@@ -357,6 +357,7 @@ m_ParticipantProfile [label = <<table border="0" align="center" cellspacing="0.5
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
   <tr><td align="left" width="130" port="cohort_id">cohort_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
   <tr><td align="left" width="130" port="core_induction_programme_id">core_induction_programme_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="induction_start_date">induction_start_date <font face="Arial Italic" color="grey60">date</font></td></tr>
   <tr><td align="left" width="130" port="mentor_profile_id">mentor_profile_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
   <tr><td align="left" width="130" port="notes">notes <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="npq_course_id">npq_course_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
