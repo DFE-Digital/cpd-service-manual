@@ -256,6 +256,15 @@ m_NPQApplication [label = <<table border="0" align="center" cellspacing="0.5" ce
   <tr><td align="left" width="130" port="works_in_school">works_in_school <font face="Arial Italic" color="grey60">boolean</font></td></tr>
 </table>
 >];
+m_NPQApplicationExport [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NPQApplicationExport</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">date ∗</font></td></tr>
+  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">date ∗</font></td></tr>
+</table>
+>];
 m_NPQContract [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NPQContract</font></td></tr>
 </table>
