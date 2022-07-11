@@ -125,7 +125,6 @@ jobs:
               - LeadProviderProfile
               - DeliveryPartnerProfile
               - InductionCoordinatorProfilesSchool
-              - User
               - Finance::Statement::ECF::Paid
               - Finance::Statement::ECF::Payable
               - Finance::Statement::NPQ::Paid
