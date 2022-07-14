@@ -335,7 +335,6 @@ m_ParticipantDeclaration [label = <<table border="0" align="center" cellspacing=
   <tr><td align="left" width="130" port="pupil_premium_uplift">pupil_premium_uplift <font face="Arial Italic" color="grey60">boolean</font></td></tr>
   <tr><td align="left" width="130" port="sparsity_uplift">sparsity_uplift <font face="Arial Italic" color="grey60">boolean</font></td></tr>
   <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
-  <tr><td align="left" width="130" port="voided_at">voided_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
 </table>
 >];
 m_ParticipantDeclarationAttempt [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
