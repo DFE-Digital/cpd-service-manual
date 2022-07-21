@@ -559,6 +559,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_CoreInductionProgramme -> m_InductionProgramme [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
   m_InductionProgramme -> m_InductionRecord [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
   "m_Finance::Schedule" -> m_InductionRecord [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
+  m_AppropriateBody -> m_InductionRecord [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
   m_LeadProvider -> m_Partnership [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
   m_LeadProvider -> m_Cohort [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odotnormal", weight = "1"];
   m_LeadProvider -> m_LeadProviderCip [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
