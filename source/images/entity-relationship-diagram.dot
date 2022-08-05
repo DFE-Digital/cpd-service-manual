@@ -256,8 +256,23 @@ m_NPQApplication [label = <<table border="0" align="center" cellspacing="0.5" ce
   <tr><td align="left" width="130" port="works_in_school">works_in_school <font face="Arial Italic" color="grey60">boolean</font></td></tr>
 </table>
 >];
-m_NPQApplicationExport [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
-  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NPQApplicationExport</font></td></tr>
+subgraph cluster_NPQApplications {
+margin = "10,10";
+label = "NPQApplications";
+"m_NPQApplications::EligibilityImport" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NPQApplications::EligibilityImport</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="filename">filename <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="import_errors">import_errors <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
+  <tr><td align="left" width="130" port="processed_at">processed_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="updated_records">updated_records <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+"m_NPQApplications::Export" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NPQApplications::Export</font></td></tr>
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
@@ -265,6 +280,7 @@ m_NPQApplicationExport [label = <<table border="0" align="center" cellspacing="0
   <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">date ∗</font></td></tr>
 </table>
 >];
+}
 m_NPQContract [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">NPQContract</font></td></tr>
 </table>
@@ -532,13 +548,13 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   <tr><td align="left" width="130" port="sign_in_count">sign_in_count <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
 </table>
 >];
+  m_User -> "m_NPQApplications::EligibilityImport" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_Cohort -> "m_Finance::Schedule" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   "m_Finance::Schedule" -> "m_Finance::ScheduleMilestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   "m_Finance::Schedule" -> "m_Finance::Milestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   "m_Finance::Schedule" -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "13"];
   m_User -> m_ParticipantIdentity [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_User -> m_TeacherProfile [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
-  m_User -> m_NPQApplicationExport [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_LeadProvider -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
   m_Cohort -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_CallOffContract -> m_ParticipantBand [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
@@ -572,6 +588,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_NPQLeadProvider -> m_NPQApplication [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_NPQCourse -> m_NPQApplication [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_Cohort -> m_NPQApplication [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
+  m_User -> "m_NPQApplications::Export" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_NPQLeadProvider -> m_NPQContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_NPQCourse -> m_NPQContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_User -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
