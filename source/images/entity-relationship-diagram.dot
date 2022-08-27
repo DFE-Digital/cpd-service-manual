@@ -449,6 +449,8 @@ m_PupilPremium [label = <<table border="0" align="center" cellspacing="0.5" cell
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
   <tr><td align="left" width="130" port="eligible_pupils">eligible_pupils <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="pupil_premium_incentive">pupil_premium_incentive <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="sparsity_incentive">sparsity_incentive <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
   <tr><td align="left" width="130" port="start_year">start_year <font face="Arial Italic" color="grey60">integer (2) ∗</font></td></tr>
   <tr><td align="left" width="130" port="total_pupils">total_pupils <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
 </table>
