@@ -238,6 +238,7 @@ m_NPQApplication [label = <<table border="0" align="center" cellspacing="0.5" ce
   <tr><td align="left" width="130" port="eligible_for_funding">eligible_for_funding <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
   <tr><td align="left" width="130" port="employer_name">employer_name <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="employment_role">employment_role <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="employment_type">employment_type <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="funding_choice">funding_choice <font face="Arial Italic" color="grey60">text</font></td></tr>
   <tr><td align="left" width="130" port="funding_eligiblity_status_code">funding_eligiblity_status_code <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="headteacher_status">headteacher_status <font face="Arial Italic" color="grey60">text</font></td></tr>
