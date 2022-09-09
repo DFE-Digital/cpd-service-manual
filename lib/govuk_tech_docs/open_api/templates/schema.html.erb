@@ -1,0 +1,65 @@
+<h3 id="<%= id = 'schema-' + title; id.parameterize %>"><%= title %></h3>
+
+<%= markdown(schema.description) %>
+
+<% if properties.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% properties.each do |property| %>
+        <tr>
+          <td><%= property[0] %></td>
+          <td><%= property[1].type %></td>
+          <td><%= schema.requires?(property[0]) %></td>
+          <td>
+            <%= markdown(property[1].description) %>
+
+            <%=
+              nested_schema = property[1]
+              # If property is an array, check the items property for a reference.
+              if property[1].type == 'array'
+                nested_schema = property[1]['items']
+              end
+              schema_location = nested_schema.node_context.source_location.to_s
+              # Only print a link if it's a referenced schema.
+              if !schema_location.include?('/properties/')
+                "It conforms to #{get_schema_link(nested_schema)} schema."
+              elsif schema_location.end_with?("data")
+                "It conforms to #{get_schema_link_data(nested_schema)} schema."
+              end
+            %>
+
+            <% if enum = property[1].enum %>
+              <p>Possible values:</p>
+
+              <ul>
+                <% enum.each do |possible_value| %>
+                  <li><%= format_possible_value(possible_value) %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if schema.example.present? && schema.type == "object" %>
+  <h4 id="<%= id = 'schema-' + title + '-example'; id.parameterize %>">Example</h4>
+  <%
+    source = json_prettyprint(schema.example)
+    formatter = Rouge::Formatters::HTML.new
+    lexer = Rouge::Lexers::JSON.new
+    output = formatter.format(lexer.lex(source))
+  %>
+  <pre class="highlight"><code><%= output %></code></pre>
+<% end %>

@@ -33,9 +33,11 @@ class ExternalDoc
       AbsoluteLinkFilter
     ]
 
-    HTML::Pipeline
-      .new(filters)
-      .to_html(markdown.to_s.force_encoding('UTF-8').split("\n")[1..-1].join("\n").strip, context)
+    lines = markdown.to_s.dup.force_encoding('UTF-8').split("\n")
+    lines = lines[1..-1] if title(markdown)
+    content = lines.join("\n").strip
+
+    HTML::Pipeline.new(filters).to_html(content, context)
   end
 
   def self.title(markdown)

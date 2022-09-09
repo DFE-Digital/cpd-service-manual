@@ -32,6 +32,20 @@ To make changes edit the source files in the `source` folder.
 
 Make sure to make changes in a branch, and issue a pull request when you want them to be reviewed and published.
 
+## Running feature tests
+
+This source repository comes with a suite of Capybara feature tests allowing the content of the site to be validated for changes.
+
+The snapshots that are compared against are stored within `spec/support/features/snapshots`.
+
+To run the feature tests just call
+
+```bash
+bundle exec rspec
+```
+
+If the changes detected are expected then simply delete the existing snapshot from `spec/support/features/snapshots` and rerun the tests. You should always commit updated snapshot files so that other can test against your changes.
+
 ## Previewing
 
 Whilst writing documentation we can run a middleman server to preview how the
@@ -77,6 +91,7 @@ Any change to the branch is automatically pushed to the review app after a few m
 When the pull request is closed or merged, the review app is deleted.
 
 ## GOV.UK PaaS set-up
+
 The application is called `cpd-service-manual` and is supported by the [Staticfile buildpack][] . It is deployed in the space
 `early-careers-framework-prod`, in the `dfe` organisation.
 

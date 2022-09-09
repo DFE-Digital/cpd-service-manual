@@ -1,0 +1,62 @@
+---
+title: Manual TRA record identification
+weight: 30
+---
+
+# <%= current_page.data.title %>
+
+## Manual validation of TRN required
+
+```mermaid
+sequenceDiagram
+    Actor P as Person
+    participant mCPD as Manage CPD
+    participant api as TRA API
+    participant zendesk as TRA Zendesk
+    Actor TRA as TRA support operator
+    participant DQT as DQT
+
+    P->>mCPD: Completes with unvalidated details
+    mCPD->>api: makes request for manual Validation with details
+    api->>zendesk: creates ticket
+    TRA->>zendesk: checks for tickets
+    TRA->>DQT: manually searches DQT
+    TRA->>zendesk: adds correct TRN to ticket
+    loop Every 24hrs
+      mCPD->>api: poll for response
+      api->>zendesk: check for ticket update
+      activate zendesk
+      zendesk->>api: return TRN or failure note
+      deactivate zendesk
+      api->>mCPD: return TRN or failure note
+    end
+    mCPD->>mCPD: update record
+```
+
+## Manual check of TRA record alert for barring required
+
+```mermaid
+sequenceDiagram
+    Actor P as Person
+    participant mCPD as Manage CPD
+    participant api as TRA API
+    participant zendesk as TRA Zendesk
+    Actor TRA as TRA support operator
+    participant DQT as DQT
+
+    P->>mCPD: Completes with unvalidated details
+    mCPD->>api: makes request for confirmation of being barred
+    api->>zendesk: creates ticket
+    TRA->>zendesk: checks for tickets
+    TRA->>DQT: manually searches DQT
+    TRA->>zendesk: adds is barred outcome
+    loop Every 24hrs
+      mCPD->>api: poll for response
+      api->>zendesk: check for ticket update
+      activate zendesk
+      zendesk->>api: return is barred outcome
+      deactivate zendesk
+      api->>mCPD: return is barred outcome
+    end
+    mCPD->>mCPD: update record
+```
