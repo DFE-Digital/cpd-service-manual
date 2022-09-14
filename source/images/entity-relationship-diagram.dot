@@ -526,6 +526,10 @@ m_SchoolLocalAuthorityDistrict [label = <<table border="0" align="center" cellsp
 m_SchoolMentor [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">SchoolMentor</font></td></tr>
 </table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="remove_from_school_on">remove_from_school_on <font face="Arial Italic" color="grey60">date</font></td></tr>
+</table>
 >];
 m_TeacherProfile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">TeacherProfile</font></td></tr>
