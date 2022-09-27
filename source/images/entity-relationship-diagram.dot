@@ -252,6 +252,7 @@ m_NPQApplication [label = <<table border="0" align="center" cellspacing="0.5" ce
   <tr><td align="left" width="130" port="targeted_support_funding_eligibility">targeted_support_funding_eligibility <font face="Arial Italic" color="grey60">boolean</font></td></tr>
   <tr><td align="left" width="130" port="teacher_catchment">teacher_catchment <font face="Arial Italic" color="grey60">text</font></td></tr>
   <tr><td align="left" width="130" port="teacher_catchment_country">teacher_catchment_country <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="teacher_catchment_iso_country_code">teacher_catchment_iso_country_code <font face="Arial Italic" color="grey60">string (3)</font></td></tr>
   <tr><td align="left" width="130" port="teacher_reference_number">teacher_reference_number <font face="Arial Italic" color="grey60">text</font></td></tr>
   <tr><td align="left" width="130" port="teacher_reference_number_verified">teacher_reference_number_verified <font face="Arial Italic" color="grey60">boolean</font></td></tr>
   <tr><td align="left" width="130" port="works_in_childcare">works_in_childcare <font face="Arial Italic" color="grey60">boolean</font></td></tr>
