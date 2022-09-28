@@ -23,6 +23,10 @@ m_AppropriateBody [label = <<table border="0" align="center" cellspacing="0.5" c
   <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
 </table>
 >];
+m_AppropriateBodyProfile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">AppropriateBodyProfile</font></td></tr>
+</table>
+>];
 m_CallOffContract [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">CallOffContract</font></td></tr>
 </table>
@@ -565,6 +569,8 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   "m_Finance::Schedule" -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "13"];
   m_User -> m_ParticipantIdentity [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_User -> m_TeacherProfile [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
+  m_User -> m_AppropriateBodyProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
+  m_AppropriateBody -> m_AppropriateBodyProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_LeadProvider -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
   m_Cohort -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_CallOffContract -> m_ParticipantBand [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
