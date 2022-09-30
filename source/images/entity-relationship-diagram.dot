@@ -32,6 +32,7 @@ m_CallOffContract [label = <<table border="0" align="center" cellspacing="0.5" c
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="monthly_service_fee">monthly_service_fee <font face="Arial Italic" color="grey60">decimal</font></td></tr>
   <tr><td align="left" width="130" port="raw">raw <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
   <tr><td align="left" width="130" port="recruitment_target">recruitment_target <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="revised_target">revised_target <font face="Arial Italic" color="grey60">integer</font></td></tr>
@@ -294,6 +295,7 @@ m_NPQContract [label = <<table border="0" align="center" cellspacing="0.5" cellp
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="monthly_service_fee">monthly_service_fee <font face="Arial Italic" color="grey60">decimal</font></td></tr>
   <tr><td align="left" width="130" port="number_of_payment_periods">number_of_payment_periods <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="output_payment_percentage">output_payment_percentage <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="per_participant">per_participant <font face="Arial Italic" color="grey60">decimal</font></td></tr>
