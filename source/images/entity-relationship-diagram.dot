@@ -621,6 +621,8 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_TeacherProfile -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
   m_ParticipantProfile -> m_ProfileValidationDecision [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "5"];
   m_ParticipantProfile -> m_InductionRecord [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "10"];
+  m_ParticipantProfile -> m_ECFParticipantEligibility [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "5"];
+  m_ParticipantProfile -> m_ECFParticipantValidationData [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "5"];
   m_ParticipantProfile -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "11"];
   m_ParticipantProfile -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
   "m_Finance::Schedule" -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
