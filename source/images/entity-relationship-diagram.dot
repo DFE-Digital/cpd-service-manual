@@ -124,6 +124,34 @@ m_ECFParticipantValidationData [label = <<table border="0" align="center" cellsp
   <tr><td align="left" width="130" port="trn">trn <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
+subgraph "cluster_Finance::ECF" {
+margin = "10,10";
+label = "Finance::ECF";
+"m_Finance::ECF::Duplicate" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Finance::ECF::Duplicate</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="cohort">cohort <font face="Arial Italic" color="grey60">integer (2)</font></td></tr>
+  <tr><td align="left" width="130" port="declaration_count">declaration_count <font face="Arial Italic" color="grey60">integer (8)</font></td></tr>
+  <tr><td align="left" width="130" port="duplicate_profile_count">duplicate_profile_count <font face="Arial Italic" color="grey60">integer (8)</font></td></tr>
+  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="external_identifier">external_identifier <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="induction_status">induction_status <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="participant_profile_status">participant_profile_status <font face="Arial Italic" color="grey60">integer (8)</font></td></tr>
+  <tr><td align="left" width="130" port="profile_type">profile_type <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="provider_name">provider_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="schedule_identifier">schedule_identifier <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="school_id">school_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="school_name">school_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="school_transfer">school_transfer <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="teacher_profile_id">teacher_profile_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
+  <tr><td align="left" width="130" port="teacher_profile_trn">teacher_profile_trn <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="training_status">training_status <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+}
 subgraph cluster_Finance {
 margin = "10,10";
 label = "Finance";
@@ -568,7 +596,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_Cohort -> "m_Finance::Schedule" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   "m_Finance::Schedule" -> "m_Finance::ScheduleMilestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   "m_Finance::Schedule" -> "m_Finance::Milestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
-  "m_Finance::Schedule" -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "13"];
+  "m_Finance::Schedule" -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "16"];
   m_User -> m_ParticipantIdentity [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_User -> m_TeacherProfile [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
   m_User -> m_AppropriateBodyProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
@@ -610,21 +638,21 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_NPQLeadProvider -> m_NPQContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_NPQCourse -> m_NPQContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_User -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
-  m_ParticipantProfile -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
+  m_ParticipantProfile -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   m_ParticipantDeclaration -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "6"];
   m_DeliveryPartner -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "3"];
   m_ParticipantDeclaration -> m_ParticipantDeclarationAttempt [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "4"];
   m_ParticipantDeclaration -> "m_Finance::StatementLineItem" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
   m_CpdLeadProvider -> m_ParticipantDeclarationAttempt [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_User -> m_ParticipantDeclarationAttempt [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
-  m_ParticipantIdentity -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
-  m_TeacherProfile -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
-  m_ParticipantProfile -> m_ProfileValidationDecision [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "5"];
-  m_ParticipantProfile -> m_InductionRecord [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "10"];
-  m_ParticipantProfile -> m_ECFParticipantEligibility [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "5"];
-  m_ParticipantProfile -> m_ECFParticipantValidationData [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "5"];
-  m_ParticipantProfile -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "11"];
-  m_ParticipantProfile -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
+  m_ParticipantIdentity -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
+  m_TeacherProfile -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
+  m_ParticipantProfile -> m_ProfileValidationDecision [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "8"];
+  m_ParticipantProfile -> m_InductionRecord [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "16"];
+  m_ParticipantProfile -> m_ECFParticipantEligibility [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "8"];
+  m_ParticipantProfile -> m_ECFParticipantValidationData [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "8"];
+  m_ParticipantProfile -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "17"];
+  m_ParticipantProfile -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   "m_Finance::Schedule" -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_CpdLeadProvider -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
   m_School -> m_Partnership [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
@@ -643,4 +671,8 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   "m_Finance::Milestone" -> "m_Finance::ScheduleMilestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_Cohort -> "m_Finance::Statement" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
   "m_Finance::Statement" -> "m_Finance::StatementLineItem" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "22"];
+  "m_Finance::ECF::Duplicate" -> "m_Finance::ECF::Duplicate" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
+  "m_Finance::ECF::Duplicate" -> m_InductionRecord [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
+  m_User -> "m_Finance::ECF::Duplicate" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
+  "m_Finance::ECF::Duplicate" -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
 }
