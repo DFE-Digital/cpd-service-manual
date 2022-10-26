@@ -148,6 +148,7 @@ label = "Finance::ECF";
   <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="teacher_profile_id">teacher_profile_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
   <tr><td align="left" width="130" port="teacher_profile_trn">teacher_profile_trn <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="training_programme">training_programme <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="training_status">training_status <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
