@@ -127,6 +127,14 @@ m_ECFParticipantValidationData [label = <<table border="0" align="center" cellsp
 subgraph "cluster_Finance::ECF" {
 margin = "10,10";
 label = "Finance::ECF";
+"m_Finance::ECF::DeletedDuplicate" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Finance::ECF::DeletedDuplicate</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="data">data <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
+</table>
+>];
 "m_Finance::ECF::Duplicate" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Finance::ECF::Duplicate</font></td></tr>
 </table>
@@ -610,6 +618,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_ParticipantProfile -> m_ECFParticipantValidationData [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "8"];
   m_ParticipantProfile -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "17"];
   m_ParticipantProfile -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
+  m_ParticipantProfile -> "m_Finance::ECF::DeletedDuplicate" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   m_AppropriateBody -> m_AppropriateBodyProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_LeadProvider -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
   m_Cohort -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
