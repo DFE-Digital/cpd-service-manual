@@ -421,6 +421,19 @@ m_ParticipantIdentity [label = <<table border="0" align="center" cellspacing="0.
   <tr><td align="left" width="130" port="origin">origin <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
 </table>
 >];
+subgraph cluster_ParticipantOutcome {
+margin = "10,10";
+label = "ParticipantOutcome";
+"m_ParticipantOutcome::NPQ" [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantOutcome::NPQ</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="completion_date">completion_date <font face="Arial Italic" color="grey60">date ∗</font></td></tr>
+  <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+}
 m_ParticipantProfile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantProfile</font></td></tr>
 </table>
