@@ -340,6 +340,7 @@ m_NPQContract [label = <<table border="0" align="center" cellspacing="0.5" cellp
   <tr><td align="left" width="130" port="recruitment_target">recruitment_target <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="service_fee_installments">service_fee_installments <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="service_fee_percentage">service_fee_percentage <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="targeted_delivery_funding_per_participant">targeted_delivery_funding_per_participant <font face="Arial Italic" color="grey60">decimal</font></td></tr>
   <tr><td align="left" width="130" port="version">version <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 >];
