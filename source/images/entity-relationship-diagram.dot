@@ -546,7 +546,6 @@ m_SchoolCohort [label = <<table border="0" align="center" cellspacing="0.5" cell
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="appropriate_body_unknown">appropriate_body_unknown <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
   <tr><td align="left" width="130" port="estimated_mentor_count">estimated_mentor_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="estimated_teacher_count">estimated_teacher_count <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="induction_programme_choice">induction_programme_choice <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
