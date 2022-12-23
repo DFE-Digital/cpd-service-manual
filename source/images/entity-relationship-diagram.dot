@@ -453,7 +453,6 @@ m_ParticipantProfile [label = <<table border="0" align="center" cellspacing="0.5
   <tr><td align="left" width="130" port="school_ukprn">school_ukprn <font face="Arial Italic" color="grey60">text</font></td></tr>
   <tr><td align="left" width="130" port="school_urn">school_urn <font face="Arial Italic" color="grey60">text</font></td></tr>
   <tr><td align="left" width="130" port="sparsity_uplift">sparsity_uplift <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
-  <tr><td align="left" width="130" port="start_term">start_term <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
   <tr><td align="left" width="130" port="training_status">training_status <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
 </table>
