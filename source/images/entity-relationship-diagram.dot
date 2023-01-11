@@ -635,8 +635,8 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_LeadProvider -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
   m_Cohort -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_CallOffContract -> m_ParticipantBand [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
-  m_Cohort -> m_Partnership [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_Cohort -> m_NPQContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
+  m_Cohort -> m_Partnership [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_CpdLeadProvider -> m_LeadProvider [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "2"];
   m_CpdLeadProvider -> m_NPQLeadProvider [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "2"];
   m_CpdLeadProvider -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "4"];
