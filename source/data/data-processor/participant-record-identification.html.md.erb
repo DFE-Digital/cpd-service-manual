@@ -7,21 +7,35 @@ weight: 30
 
 In order for external systems to record information such as training progress or outcomes against a participants CPD records a unique identifier (UID) is created. The UID identifier is created by the CPD service.
 
-The Teacher Regulation Agency (TRA) has its own UID called a Teacher Reference Number (TRN). As the TRA is currently responsible for recording the outcomes of inductions the Lead Providers and Appropriate Bodies need the TRN.
+The Teacher Regulation Agency (TRA) has its own UID called a Teacher Reference Number (TRN), each TRN identifies a specific TRA Record. The TRA Record is where the DfE records whether a teacher is qualified to teach or not. The outcomes of inductions play a part in this qualification and so are held in the TRA Record. To record an induction outcome the TRA needs the TRN for the appropriate TRA Record to be able to record the outcome against the correct record.
 
-In the Early Roll out of ECF and NPQs it was established that the TRN is too basic a format to collect accurately so a decision was made for the digital service to collect and validate the TRN and make available to Lead Providers systems once validated.
+In the Early Roll out of ECF and NPQs it was established that the TRN is too basic a format to collect accurately so a decision was made for the digital service built for National Rollout to collect and validate the TRN as it is entered and make it available to Lead Providers systems once validated as there was a need for the Lead Providers to share the outcomes directly with the TRA themselves via an Evaluator.
 
 ## Overview
 
-When a participants induction or training is reported the service collects enough details to match a record in the Teacher Regulation Agency (TRA) records. To do this the service is required to collect first name, last name, email address, TRN, date of birth and optionally National Insurance Number (NINo).
+The CPD Service is responsible for ensuring that each CPD record is associated with a single TRA Record and that funding is only attributed to the training delivered against that CPD Record once.
 
-If the TRN or NINo plus date of birth matches a TRA record and at least three out of first name, date of birth, TRN and NINo match then the TRN is considered to have been entered correctly and only the full name, email address and TRN needs to be retained within the service.
+When a participants induction or training is reported by a user the service collects enough details to match a record in the Teacher Regulation Agency (TRA) records. To do this the service is required to collect the participants full name, TRN, date of birth and if needed their National Insurance Number (NINo). This process mimics the current login process for the [teacher self-service portal](https://teacherservices.education.gov.uk/SelfService/Login) and is also part of the method by which DfE Analysts link up the various DfE data collections around a teachers profile for analysis purposes.
 
-If there is no match the participant will be asked to correct their details by comparing them to the [teacher services portal](https://teacherservices.education.gov.uk/SelfService/Login) themselves or making a request of the TRA to remind them of their TRN.
+If a search of the TRA Record database using the TRN or NINo plus date of birth matches a TRA record and the first name provided also matches the details held within the TRA Record it is considered to have been entered correctly. From this point on only the TRN needs to be retained within the CPD service as the now validated TRN links the CPD Record to an equivalent TRA Record and links the records from now on.
 
-## The process of identifying a TRA record for ECF
+> The CPD service does not record which of the validation data entered matches the TRA Record and which does not. [See the notes section for more detail](#domain-data-5-notes-3)
 
-The following diagram and details helps to explain the processes and systems involved in identifying a TRA record for a participant of the ECF induction programme.
+If there is no match the user will be asked to correct their details by comparing them to the [teacher self-service portal](https://teacherservices.education.gov.uk/SelfService/Login) themselves or making a request of the TRA to remind them of their TRN using the [Find a Lost TRN digital service](https://find-a-lost-trn.education.gov.uk/start) and the search process is repeated.
+
+If there is still no match or the user is certain that the details entered are correct then the data collected and a [manual TRN validation process](./manual-trn-validation) is requested.
+
+## The TRN data entry validation process
+
+To identify a TRA Record a TRN is required. A TRN is 7 digit number issued to a Initial Teacher Training (ITT) participant on beginning their ITT course. The TRN is unique to a TRA Record, it is supposed to be unique to a single qualified or qualifying teacher but the legacy process has meant that in reality several people can be issued with the same TRN which has to be reconciled once the error has been identified. Additionally it is possible for an individual qualified or qualifying teacher to be issued with several TRNs again attempt are made to rectify this if identified.
+
+When a TRN is submitted by an individual it can be entered incorrectly. There are several reasons for this issue including non standard formats, mistaking other numbers for the TRN and basic user entry error. To help guard against these issues guidance has been published to help identify the actual TRN of an individual from paperwork they may possess but this cannot guard against user entry errors.
+
+To help validate the TRN entered the CPD service connects directly to the TRA Qualifications API to search for the TRA Record as the data is entered. A TRN is requested along with a Date of Birth, if no record can be found with these two pieces of data then a NINo is also requested and a search for NINo and Date of birth is requested. If any records are returned at either stage then a final check is made against the first name. This process means that automatic TRA Record identification is based on 3 out of 4 pieces of data matching, this gives a 96% match rate with Manual TRN Validation helping to fill the final gap.
+
+## The process of identifying a TRA record for ECF Participants
+
+The following diagram and details helps to explain the processes and systems involved in identifying a TRA record for a participant reported through the CPD service.
 
 ```mermaid
 sequenceDiagram
@@ -34,42 +48,57 @@ sequenceDiagram
     participant API as Lead Provider API
     Actor LP as Lead Provider
 
-    SIT ->> mECT: Registers participant
+    SIT ->> mECT: Registers participant (contact details only)
     mECT ->> mCPD: Stores contact details
-    mCPD ->>+ Notify: Request invitation sent
-    Notify -->>- P: Invitation sent
+    mCPD ->>+ Notify: Request registration invitation sent
+    Notify -->>- P: Registration invitation sent
 
     loop Periodically
-      LP ->> API: Contact details (name, email) collected
-      API ->> mCPD: Retrieve contact details
+      LP ->> API: Poll for new Participant records
+      API ->> mCPD: Retrieve participant records
+      mCPD ->> API: participant records returned
+      API ->> LP: Participant records collected (contact details only)
     end
 
-    P ->> mECT: Provides teacher record details
-    mCPD ->>+ TRA: Validate teacher record details
-    TRA -->>- mCPD: Validation result
-    mECT ->> mCPD: Stores teacher record details
+    LP -->> P: Request for further details sent
+
+    P ->> mECT: Provides teacher record search details
+    mECT ->>+ TRA: Search teacher records
+    TRA -->>- mECT: TRA Record matches returned
+    mECT ->> mECT: Check first name matches
+    mECT ->> mCPD: Store teacher record TRN
+    mECT ->> mCPD: Store TRN validation data
 
     loop Periodically
-      LP ->> API: teacher details (TRN) collected
-      API ->> mCPD: Retrieve teacher details
+      LP ->> API: Poll for new Participant records
+      API ->> mCPD: Retrieve participant records
+      mCPD ->> API: participant records returned
+      API ->> LP: Participant records collected (TRN plus TRN validation status)
     end
-
-    LP -->> P: Welcome email sent
 ```
 
 #### The process in detail
 
-1. the School induction tutor will register contact details for each induction participant in the cohort, which will include name and email address.
+1. the School induction tutor (SIT) will report the contact details for each induction participant in the cohort, which will include name and email address.
 2. the contact details are stored by the service to facilitate communications with participants when required
 3. an API call with the contact details is made to the GOV UK Notify API service to initiate the invitation email
 4. a GOV UK branded invitation email with a one-time use web link is sent to the participants email address
-5.
-6. the participant follows a the web link in the invitation email and is asked to complete the teacher record details
-7. the TRN or NINo plus DoB are submitted to the TRA API to validate the teacher record details
-8. the TRA API returns a matched record and the other teacher record details are checked
-9. the teacher record details are stored by the service to facilitate manual validation checks if a match is not made
+5. The Lead Provider polls the Participants API for the latest records
+6. The API retrieves the latest participant records for the specific Lead Provider
+7. The Lead Provider reads the records returned and creates a new training record in their LMS
+8. The Lead Provider makes initial contact with the participant to gather additional details required to deliver the induction training, this may include a different email address to use going forward or a preferred name along with additional things like dietary or access requirements amongst others.
+9. the participant follows a web link in the registration invitation email from the CPD Service and is asked to complete the teacher record search details
+7. the TRN or NINo plus DoB are submitted to the TRA Qualifications API
+8. the TRA Qualifications API returns any matched records and the first name is checked
+9. the TRA returned is stored by the service against the CPD record
+10. the submitted TRN and validation data is stored to facilitate manual validation checks if a match is not made
+11. The Lead Provider continues to poll the Participants API for the latest records
+12. The API retrieves the latest participant records for the specific Lead Provider
+13. The Lead Provider reads the records returned and updates the appropriate training record in their LMS with the validated TRN
 
 ### Simplifying the process for ECF
+
+The second year of the National Role out of ECF required better support for participants moving schools. The decision was taken to allow the SITs to provide the TRN and validation details
 
 When a participant moves school during the induction period or a School Induction Tutor has the correct details to hand - such as during the on boarding process - a simpler process is enabled.
 
@@ -150,3 +179,17 @@ sequenceDiagram
 6. the TRN or NINo plus DoB are submitted to the TRA API to validate the teacher record details
 7. the TRA API returns a matched record and the other teacher record details are checked
 8. the teacher record details are stored by the service to facilitate manual validation checks if a match is not made
+
+## Notes
+
+### Validity of the data collected during the record identification process
+
+The TRN provided is replaced in the CPD Service with the one identified by searching and matching with a TRA Record based on the TRA Record matchin rules.
+
+### TRA Record Matching rules
+
+In the automated validation process the Date of Birth and the first name also needs to match the one held within the TRA Record. If the TRN and Date of Birth do not match a TRA Record then a NINo is requested to perform a second search. If the second search results in a match then the resulting TRA Record is considered the correct provides access to the TRN to be recorded against this CPD Record.
+
+### Data retention policy
+
+The Validated TRN and full name collected by the CPD Service is held in the CPD records separately to the TRN and other data entered during the validation process before being purged. The CPD service does not explicitly record which data matched the TRA Record as this may also not be correct but whilst the input data is still held the process can be rerun.
