@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: DFE-Digital/early-careers-framework
 
@@ -21,7 +21,7 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: '3.1.2'
-          
+
       - name: Unlock bundler
         run: bundle config unset deployment
 
