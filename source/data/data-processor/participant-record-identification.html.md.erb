@@ -5,7 +5,7 @@ weight: 30
 
 # <%= current_page.data.title %>
 
-In order for external systems to record information such as training progress or outcomes against a participants CPD records a unique identifier (UID) is created. The UID identifier is created by the CPD service.
+In order for external Lead Provider systems to record information such as training progress or outcomes against a participants CPD records a unique identifier (UID) is created. The UID identifier is created by the CPD service.
 
 The Teacher Regulation Agency (TRA) has its own UID called a Teacher Reference Number (TRN), each TRN identifies a specific TRA Record. The TRA Record is where the DfE records whether a teacher is qualified to teach or not. The outcomes of inductions play a part in this qualification and so are held in the TRA Record. To record an induction outcome the TRA needs the TRN for the appropriate TRA Record to be able to record the outcome against the correct record.
 
@@ -62,11 +62,11 @@ sequenceDiagram
 
     LP -->> P: Request for further details sent
 
-    P ->> mECT: Provides teacher record search details
-    mECT ->>+ TRA: Search teacher records
+    P ->> mECT: Provides TRA record search details
+    mECT ->>+ TRA: Search TRA records
     TRA -->>- mECT: TRA Record matches returned
     mECT ->> mECT: Check first name matches
-    mECT ->> mCPD: Store teacher record TRN
+    mECT ->> mCPD: Store TRA record TRN
     mECT ->> mCPD: Store TRN validation data
 
     loop Periodically
@@ -87,10 +87,10 @@ sequenceDiagram
 6. The API retrieves the latest participant records for the specific Lead Provider
 7. The Lead Provider reads the records returned and creates a new training record in their LMS
 8. The Lead Provider makes initial contact with the participant to gather additional details required to deliver the induction training, this may include a different email address to use going forward or a preferred name along with additional things like dietary or access requirements amongst others.
-9. the participant follows a web link in the registration invitation email from the CPD Service and is asked to complete the teacher record search details
+9. the participant follows a web link in the registration invitation email from the CPD Service and is asked to complete the TRA record search details
 7. the TRN or NINo plus DoB are submitted to the TRA Qualifications API
 8. the TRA Qualifications API returns any matched records and the first name is checked
-9. the TRA returned is stored by the service against the CPD record
+9. the TRN returned is stored by the service against the CPD record
 10. the submitted TRN and validation data is stored to facilitate manual validation checks if a match is not made
 11. The Lead Provider continues to poll the Participants API for the latest records
 12. The API retrieves the latest participant records for the specific Lead Provider
@@ -98,11 +98,9 @@ sequenceDiagram
 
 ### Simplifying the process for ECF
 
-The second year of the National Role out of ECF required better support for participants moving schools. The decision was taken to allow the SITs to provide the TRN and validation details
+The second year of the National Role out of ECF required better support for participants moving schools. The decision was taken to allow the SITs to provide the TRN and validation data, falling back to asking the participant if a match still could not be found. The same matching rules are used and the process is unchanged for Lead Providers collecting the participant records.
 
-When a participant moves school during the induction period or a School Induction Tutor has the correct details to hand - such as during the on boarding process - a simpler process is enabled.
-
-The following diagram and details helps to explain the simpler processes and systems involved.
+The following diagram and details helps to explain the simpler process and systems involved.
 
 ```mermaid
 sequenceDiagram
@@ -114,23 +112,36 @@ sequenceDiagram
     participant API as Lead Provider API
     Actor LP as Lead Provider
 
-    SIT ->> mECT: Provides teacher record details
+    SIT ->> mECT: Registers participant (including TRA Record search details)
     mECT ->> mCPD: Stores contact details
+    mECT ->>+ TRA: Search TRA records
+    TRA -->>- mECT: TRA Record matches returned
+    mECT ->> mECT: Check first name matches
+    mECT ->> mCPD: Store TRA record TRN
+    mECT ->> mCPD: Store TRN validation data
 
     loop Periodically
-      LP ->> API: Contact details (name, email) collected
-      API ->> mCPD: Retrieve contact details
+      LP ->> API: Poll for new Participant records
+      API ->> mCPD: Retrieve participant records
+      mCPD ->> API: participant records returned
+      API ->> LP: Participant records collected (TRN plus TRN validation status)
     end
 
-    mCPD ->>+ TRA: Validate teacher record details
-    TRA -->>- mCPD: Validation result
-    mECT ->> mCPD: Stores teacher record details
-
-    loop Periodically
-      LP ->> API: teacher details (TRN) collected
-      API ->> mCPD: Retrieve teacher details
-    end
+    LP -->> P: Request for further details sent
 ```
+
+#### The process in detail
+
+1. the School induction tutor (SIT) will report the full details for each induction participant in the cohort, which will include name, email address, TRN and TRN validation data.
+2. the contact details are stored by the service to facilitate communications with participants when required
+3. the TRN or NINo plus DoB are submitted to the TRA Qualifications API
+4. the TRA Qualifications API returns any matched records and the first name is checked
+5. the TRN returned is stored by the service against the CPD record
+6. the submitted TRN and validation data is stored to facilitate manual validation checks if a match is not made
+7. The Lead Provider polls the Participants API for the latest records
+8. The API retrieves the latest participant records for the specific Lead Provider
+9. The Lead Provider reads the records returned and creates a new training record in their LMS
+10. The Lead Provider makes initial contact with the participant to gather additional details required to deliver the induction training, this may include a different email address to use going forward or a preferred name along with additional things like dietary or access requirements amongst others.
 
 ## The process of identifying a TRA record for NPQs
 
@@ -139,57 +150,104 @@ The following diagram and details helps to explain the processes and systems inv
 ```mermaid
 sequenceDiagram
     Actor P as Participant
-    participant mECT as Manage ECF
+    participant mECT as Register NPQ
     participant mCPD as Manage CPD
     participant Notify as GOV UK Notify
     participant TRA as TRA records
     participant API as Lead Provider API
     Actor LP as Lead Provider
 
-    P ->> mECT: Provides contact details
-    mECT ->> mCPD: Stores contact details
-    mCPD ->>+ Notify: Request email verification sent
-    Notify -->>- P: Email verification sent
-    P ->> mECT: Provides email verification code
-    P ->> mECT: Provides teacher record details
-    mECT ->> mCPD: Stores contact details
+    P ->> mECT: Provides application details (including TRA Record search details)
+    mECT ->> mCPD: Stores application details
+    mECT ->>+ TRA: Search TRA records
+    TRA -->>- mECT: TRA Record matches returned
+    mECT ->> mECT: Check first name matches
+    mECT ->> mCPD: Store TRA record TRN
+    mECT ->> mCPD: Store TRN validation data
 
     loop Periodically
-      LP ->> API: Contact details (name, email) collected
-      API ->> mCPD: Retrieve contact details
+      LP ->> API: Poll for new Application records
+      API ->> mCPD: Retrieve application records
+      mCPD ->> API: Application records returned
+      API ->> LP: Application records collected (TRN plus TRN validation status)
     end
 
-    mCPD ->>+ TRA: Validate teacher record details
-    TRA -->>- mCPD: Validation result
-    mECT ->> mCPD: Stores teacher record details
+    LP -->> P: Request for confirmation of training
+    P -->> LP: Confirmation of training confirmed
+
+    LP ->> API: Confirms application has been accepted
+    API ->> mCPD: Stores acceptance notification
+
+    mCPD ->> mCPD: Creates participant record
 
     loop Periodically
-      LP ->> API: teacher details (TRN) collected
-      API ->> mCPD: Retrieve teacher details
+      LP ->> API: Poll for new Participant records
+      API ->> mCPD: Retrieve participant records
+      mCPD ->> API: participant records returned
+      API ->> LP: Participant records collected (TRN plus TRN validation status)
     end
+
+    LP -->> P: Request for further details sent
 ```
 
 #### The process in detail
 
-1. the School induction tutor will register contact details for each induction participant in the cohort, which will include name and email address.
-2. the contact details are stored by the service to facilitate communications with participants when required
-3. an API call with the contact details is made to the GOV UK Notify API service to instigate the invitation email
-4. a GOV UK branded invitation email with a one-time use web link is sent to the participants email address
-5. the participant follows a the web link in the invitation email and is asked to complete the teacher record details
-6. the TRN or NINo plus DoB are submitted to the TRA API to validate the teacher record details
-7. the TRA API returns a matched record and the other teacher record details are checked
-8. the teacher record details are stored by the service to facilitate manual validation checks if a match is not made
+1. the User will register application details, which will include name, email address, TRN and TRN validation data.
+2. the application details are stored by the service to facilitate communications with participants when required
+3. the TRN or NINo plus DoB are submitted to the TRA Qualifications API
+4. the TRA Qualifications API returns any matched records and the first name is checked
+5. the TRN returned is stored by the service against the CPD record
+6. the submitted TRN and validation data is stored to facilitate manual validation checks if a match is not made
+7. The Lead Provider polls the Applications API for the latest records
+8. The API retrieves the latest application records for the specific Lead Provider
+9. The Lead Provider reads the records returned and creates a new application record in their LMS
+10. The Lead Provider requests confirmation from the applicant about training
+11. The applicant confirms they wish to train with this Lead Provider
+12. The Lead Provider submits an accepted declaration
+13. The Acceptance is stored and a new participant record is created
+14. The Lead Provider polls the Participants API for the latest records
+15. The API retrieves the latest participant records for the specific Lead Provider
+16. The Lead Provider reads the records returned and creates a new training record in their LMS
+17. The Lead Provider makes initial contact with the participant to gather additional details required to deliver the induction training, this may include a different email address to use going forward or a preferred name along with additional things like dietary or access requirements amongst others.
 
 ## Notes
 
+### Data processed as part of the record identification process
+
+1. Full name ( could defer from the TRA Record )
+2. Teacher Reference Number ( as entered by a user, could be incorrect )
+3. Teacher Reference Number ( as found in a matched TRA Record )
+4. Date of Birth ( could be incorrect )
+5. National Insurance Number ( not in all cases, could be incorrect )
+
+> Only the Full name and TRN are passed to Lead Providers. The full name facilitates initial contact with the applicant or participant. The TRN facilitates the passing of outcomes to the TRA and Evaluators.
+
 ### Validity of the data collected during the record identification process
 
-The TRN provided is replaced in the CPD Service with the one identified by searching and matching with a TRA Record based on the TRA Record matchin rules.
+The TRN identified by searching and matching with a TRA Record based on the TRA Record matching rules is stored against a CPD Record. No record of which data was used to identify the TRA record is held, the validation data NINo, Date of Birth and submitted TRN are removed.
+
+The request for the participants name is requested as found in the TRA Records, this does not guarantee that the name entered will match the TRA record entry. To mitigate against family name changes - such as in the event of a marriage or divorce - only the first name is tested.
+
+The Date of Birth is required to match the one held with either the TRN or the NINo. If the Date of Birth is incorrect manual validation will be required.
 
 ### TRA Record Matching rules
 
-In the automated validation process the Date of Birth and the first name also needs to match the one held within the TRA Record. If the TRN and Date of Birth do not match a TRA Record then a NINo is requested to perform a second search. If the second search results in a match then the resulting TRA Record is considered the correct provides access to the TRN to be recorded against this CPD Record.
+In the automated validation process the Date of Birth and the first name also needs to match the one held within the TRA Record for the submitted TRN.
+
+If the TRN and Date of Birth do not match a TRA Record then a NINo is requested to perform a second search. If the second search results in a match and the first name matches then the resulting TRA Record is considered correct and provides access to the TRN to be recorded against this CPD Record.
+
+If a match is still not found then manual TRN validation is requested.
 
 ### Data retention policy
 
-The Validated TRN and full name collected by the CPD Service is held in the CPD records separately to the TRN and other data entered during the validation process before being purged. The CPD service does not explicitly record which data matched the TRA Record as this may also not be correct but whilst the input data is still held the process can be rerun.
+The Validated TRN and full name collected by the CPD Service is held in the CPD records separately to the TRN and other data entered during the validation process before being purged.
+
+The full name stored is as entered, only the first name is matched against the TRA Record to facilitate family name changes. The family name may be taken into account in manual validation. The submitted full name is passed to Lead Providers through the Applications and Participants APIs in order to facilitate initial contact.
+
+The CPD Service will keep the TRN indefinitely to link CPD Records to other DfE Records for analysis purposes. All other data used in validating the TRN will be deleted as soon as a match has been made.
+
+### Recording outcomes through the CPD Service
+
+The Lead Providers are now required to report NPQ outcomes as part of the completed declaration process. As this uses the UID of the participant record the TRN is no longer required by Lead Providers in order to perform the recording of outcomes with the TRA.
+
+Once the ECF outcomes are recorded through the completed declaration process then ECF Lead Providers will also no longer need to be passed the TRN.
