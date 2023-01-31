@@ -9,7 +9,9 @@ In order for external Lead Provider systems to record information such as traini
 
 The Teacher Regulation Agency (TRA) has its own UID called a Teacher Reference Number (TRN), each TRN identifies a specific TRA Record. The TRA Record is where the DfE records various details about a teachers training such as whether a teacher is qualified to teach or not amongst other things. The outcomes of inductions play a part in this qualification and so are also held in the TRA Record. To record an outcome the TRA needs the TRN for the appropriate TRA Record to be able to record the outcome against the correct record.
 
-In the Early Roll out of ECF and NPQs it was established that the TRN is too basic a format to collect accurately so a decision was made for the digital service built for National Rollout to collect and validate the TRN as it is entered and make it available to Lead Providers systems once validated as there was a need for the Lead Providers to share the outcomes directly with the TRA themselves via an Evaluator.
+Recording the outcome of the training is a role performed by an Appropriate Body ( for ECF Inductions through the TRA Appropriate Body portal ) or the Lead Provider ( for NPQs through the Lead Provider APIs ). Appropriate bodies need the TRN in order to find the appropriate TRA Record to report the outcome against therefore the Lead Provider needs to be able to pass the validated TRN on to the Appropriate Body to enable this task.
+
+In the Early Roll out of ECF and NPQs it was established that the TRN is too basic a format to collect accurately so a decision was made for the digital service built for National Rollout to collect and validate the TRN as it is entered and make it available to Lead Providers systems once validated.
 
 ## Overview
 
@@ -248,9 +250,9 @@ The CPD Service will keep the TRN indefinitely to link CPD Records to other DfE 
 
 ### Recording outcomes through the CPD Service
 
-The Lead Providers are now required to report NPQ outcomes as part of the completed declaration process. As this uses the UID of the participant record the TRN is no longer required by Lead Providers in order to perform the recording of outcomes with the TRA.
+The Lead Providers are now required to report NPQ outcomes as part of the completed declaration process. As this uses the UID of the participant record the TRN is no longer required by Lead Providers in order to perform the recording of NPQ outcomes with the TRA.
 
-Once the ECF outcomes are recorded through the completed declaration process then ECF Lead Providers will also no longer need to be passed the TRN.
+ECF Outcomes are reported by the Appropriate Bodies who need the correct TRN to be provided to them by the Lead Provider in order to find the relevant TRA Record to record the outcome against through the TRA Appropriate Body Portal.
 
 ### Passing names as initial contact details to Lead Providers
 
