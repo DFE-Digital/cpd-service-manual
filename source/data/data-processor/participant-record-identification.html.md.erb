@@ -7,7 +7,7 @@ weight: 30
 
 In order for external Lead Provider systems to record information such as training progress or outcomes against a participants CPD records a unique identifier (UID) is created. The UID identifier is created by the CPD service.
 
-The Teacher Regulation Agency (TRA) has its own UID called a Teacher Reference Number (TRN), each TRN identifies a specific TRA Record. The TRA Record is where the DfE records various details about a teachers training such as whether a teacher is qualified to teach or not amongst other things. The outcomes of inductions play a part in this qualification and so are also held in the TRA Record. To record an outcome the TRA needs the TRN for the appropriate TRA Record to be able to record the outcome against the correct record.
+The Teacher Regulation Agency (TRA) has its own UID called a [Teacher Reference Number (TRN)](https://www.gov.uk/guidance/teacher-reference-number-trn ), each TRN identifies a specific TRA Record. The TRA Record is where the DfE records various details about a teachers training such as whether a teacher is qualified to teach or not amongst other things. The outcomes of inductions play a part in this qualification and so are also held in the TRA Record. To record an outcome the TRA needs the TRN for the appropriate TRA Record to be able to record the outcome against the correct record.
 
 Recording the outcome of the training is a role performed by an Appropriate Body ( for ECF Inductions through the TRA Appropriate Body portal ) or the Lead Provider ( for NPQs through the Lead Provider APIs ). Appropriate bodies need the TRN in order to find the appropriate TRA Record to report the outcome against therefore the Lead Provider needs to be able to pass the validated TRN on to the Appropriate Body to enable this task.
 
@@ -35,7 +35,23 @@ When a TRN is submitted by an individual it can be entered incorrectly. There ar
 
 To help validate the TRN entered the CPD service connects directly to the TRA Qualifications API to search for the TRA Record as the data is entered. A TRN is requested along with a Date of Birth, if no record can be found with these two pieces of data then a NINo is also requested and a search for NINo and Date of birth is requested. If any records are returned at either stage then a final check is made against the first name. This process means that automatic TRA Record identification is based on 3 out of 4 pieces of data matching, this gives a 96% match rate with Manual TRN Validation helping to fill the final gap.
 
-## The process of identifying a TRA record for ECF Participants
+### What this process does
+
+The process finds a TRA Record by matching on a minimum of three out of five pieces of information provided by the current user;
+
+1. Teacher Reference Number
+2. Date of Birth
+3. National Insurance Number
+4. First name
+5. Full name - if used for manual validation
+
+### What this process does not do
+
+1. Verify the identity of a user interacting with the service
+2. Provide a secure authentication process for digital services
+3. Ensure that the TRA Record found holds information about the current user on the service
+
+## The current process of identifying a TRA record with ECF Participants
 
 The following diagram and details helps to explain the processes and systems involved in identifying a TRA record for a participant reported through the CPD service.
 
@@ -90,15 +106,15 @@ sequenceDiagram
 7. The Lead Provider reads the records returned and creates a new training record in their LMS
 8. The Lead Provider makes initial contact with the participant to gather additional details required to deliver the  training, this may include a different email address to use going forward or a preferred name along with additional things like dietary or access requirements amongst others.
 9. the participant follows a web link in the registration invitation email from the CPD Service and is asked to complete the TRA record search details
-7. the TRN or NINo plus DoB are submitted to the TRA Qualifications API
-8. the TRA Qualifications API returns any matched records and the first name is checked
-9. the TRN returned is stored by the service against the CPD record
-10. the submitted TRN and validation data is stored to facilitate manual validation checks if a match is not made
-11. The Lead Provider continues to poll the Participants API for the latest records
-12. The API retrieves the latest participant records for the specific Lead Provider
-13. The Lead Provider reads the records returned and updates the appropriate training record in their LMS with the validated TRN
+10. the TRN or NINo plus DoB are submitted to the TRA Qualifications API
+11. the TRA Qualifications API returns any matched records and the first name is checked
+12. the TRN returned is stored by the service against the CPD record
+13. the submitted TRN and validation data is stored to facilitate manual validation checks if a match is not made
+14. The Lead Provider continues to poll the Participants API for the latest records
+15. The API retrieves the latest participant records for the specific Lead Provider
+16. The Lead Provider reads the records returned and updates the appropriate training record in their LMS with the validated TRN
 
-### Simplifying the process for ECF
+### The current process of identifying a TRA Record with a non participant user
 
 The second year of the National Role out of ECF required better support for participants moving schools. The decision was taken to allow the SITs to provide the TRN and validation data, falling back to asking the participant if a match still could not be found. The same matching rules are used and the process is unchanged for Lead Providers collecting the participant records.
 
@@ -145,7 +161,7 @@ sequenceDiagram
 9. The Lead Provider reads the records returned and creates a new training record in their LMS
 10. The Lead Provider makes initial contact with the participant to gather additional details required to deliver the  training, this may include a different email address to use going forward or a preferred name along with additional things like dietary or access requirements amongst others.
 
-## The process of identifying a TRA record for NPQs
+## The current process of identifying a TRA record with NPQ participants
 
 The following diagram and details helps to explain the processes and systems involved in identifying a TRA record for a participant of the NPQ training programme.
 
