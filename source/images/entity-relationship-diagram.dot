@@ -284,7 +284,9 @@ m_NPQApplication [label = <<table border="0" align="center" cellspacing="0.5" ce
   <tr><td align="left" width="130" port="funding_choice">funding_choice <font face="Arial Italic" color="grey60">text</font></td></tr>
   <tr><td align="left" width="130" port="funding_eligiblity_status_code">funding_eligiblity_status_code <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="headteacher_status">headteacher_status <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="itt_provider">itt_provider <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="kind_of_nursery">kind_of_nursery <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="lead_mentor">lead_mentor <font face="Arial Italic" color="grey60">boolean</font></td></tr>
   <tr><td align="left" width="130" port="lead_provider_approval_status">lead_provider_approval_status <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
   <tr><td align="left" width="130" port="nino">nino <font face="Arial Italic" color="grey60">text</font></td></tr>
   <tr><td align="left" width="130" port="private_childcare_provider_urn">private_childcare_provider_urn <font face="Arial Italic" color="grey60">string</font></td></tr>
@@ -605,6 +607,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   <tr><td align="left" width="130" port="discarded_at">discarded_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">citext ∗ U</font></td></tr>
   <tr><td align="left" width="130" port="full_name">full_name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="get_an_identity_id">get_an_identity_id <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="last_sign_in_at">last_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="last_sign_in_ip">last_sign_in_ip <font face="Arial Italic" color="grey60">inet</font></td></tr>
   <tr><td align="left" width="130" port="login_token">login_token <font face="Arial Italic" color="grey60">string</font></td></tr>
