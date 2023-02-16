@@ -433,10 +433,25 @@ label = "ParticipantOutcome";
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
   <tr><td align="left" width="130" port="completion_date">completion_date <font face="Arial Italic" color="grey60">date ∗</font></td></tr>
+  <tr><td align="left" width="130" port="qualified_teachers_api_request_successful">qualified_teachers_api_request_successful <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="sent_to_qualified_teachers_api_at">sent_to_qualified_teachers_api_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
 </table>
 >];
 }
+m_ParticipantOutcomeApiRequest [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantOutcomeApiRequest</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="request_body">request_body <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
+  <tr><td align="left" width="130" port="request_headers">request_headers <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
+  <tr><td align="left" width="130" port="request_path">request_path <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="response_body">response_body <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
+  <tr><td align="left" width="130" port="response_headers">response_headers <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
+  <tr><td align="left" width="130" port="status_code">status_code <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
 m_ParticipantProfile [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantProfile</font></td></tr>
 </table>
@@ -624,16 +639,16 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_User -> m_ParticipantIdentity [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_User -> m_TeacherProfile [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
   m_User -> m_AppropriateBodyProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
-  m_TeacherProfile -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   m_ParticipantIdentity -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
-  m_ParticipantProfile -> m_ProfileValidationDecision [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "8"];
-  m_ParticipantProfile -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
+  m_TeacherProfile -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   m_ParticipantProfile -> m_InductionRecord [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "16"];
+  m_ParticipantProfile -> "m_Finance::ECF::DeletedDuplicate" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
+  m_ParticipantProfile -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
+  m_ParticipantProfile -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
+  m_ParticipantProfile -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "17"];
+  m_ParticipantProfile -> m_ProfileValidationDecision [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "8"];
   m_ParticipantProfile -> m_ECFParticipantEligibility [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "8"];
   m_ParticipantProfile -> m_ECFParticipantValidationData [arrowsize = "0.6", arrowhead = "odot", arrowtail = "odot", weight = "8"];
-  m_ParticipantProfile -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "17"];
-  m_ParticipantProfile -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
-  m_ParticipantProfile -> "m_Finance::ECF::DeletedDuplicate" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   m_AppropriateBody -> m_AppropriateBodyProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_LeadProvider -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
   m_Cohort -> m_CallOffContract [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
@@ -650,12 +665,12 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_Cohort -> m_ProviderRelationship [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_LeadProvider -> m_ProviderRelationship [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_LocalAuthorityDistrict -> m_DistrictSparsity [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
-  m_SchoolCohort -> m_InductionProgramme [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
-  m_Partnership -> m_InductionProgramme [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
   m_CoreInductionProgramme -> m_InductionProgramme [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
+  m_Partnership -> m_InductionProgramme [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
+  m_SchoolCohort -> m_InductionProgramme [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
   m_InductionProgramme -> m_InductionRecord [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
-  "m_Finance::Schedule" -> m_InductionRecord [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_AppropriateBody -> m_InductionRecord [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
+  "m_Finance::Schedule" -> m_InductionRecord [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_LeadProvider -> m_Partnership [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
   m_LeadProvider -> m_Cohort [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odotnormal", weight = "1"];
   m_LeadProvider -> m_LeadProviderCip [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
@@ -678,6 +693,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_ParticipantDeclaration -> "m_Finance::StatementLineItem" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
   m_CpdLeadProvider -> m_ParticipantDeclarationAttempt [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_User -> m_ParticipantDeclarationAttempt [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
+  "m_ParticipantOutcome::NPQ" -> m_ParticipantOutcomeApiRequest [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   "m_Finance::Schedule" -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_CpdLeadProvider -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
   m_School -> m_Partnership [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
