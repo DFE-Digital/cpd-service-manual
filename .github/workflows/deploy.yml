@@ -9,6 +9,11 @@ on:
   schedule:
     - cron: '0 6 * * *'
 
+permissions:
+  contents: read
+  pages: write      # to deploy to Pages
+  id-token: write   # to verify the deployment originates from an appropriate source
+
 jobs:
   create-artifacts:
     name: Create entity relationship artifacts
@@ -185,6 +190,8 @@ jobs:
           git push
 
   build-and-push:
+    if: ${{ github.event_name != 'pull_request' }}
+
     name: Build and deploy service manual
 
     runs-on: ubuntu-latest
@@ -223,34 +230,11 @@ jobs:
     - name: Build docs with middleman
       run: make build
 
-    - name: Set environment variables (Push)
-      if: ${{ github.event_name != 'pull_request' }}
-      run: |
-        SPACE=earlycareers-framework-dev
-        echo "SPACE=${SPACE}" >> $GITHUB_ENV
-        APP_NAME=cpd-service-manual
-        echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
-
-    - name: Set environment variables (Pull request)
-      if: ${{ github.event_name == 'pull_request' }}
-      run: |
-        SPACE=earlycareers-framework-dev
-        echo "SPACE=${SPACE}" >> $GITHUB_ENV
-        APP_NAME=cpd-service-manual-${{ github.event.number }}
-        echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
-
-    - name: Configure Cloud Foundry CLI with space ${{ env.SPACE }}
-      uses: DFE-Digital/github-actions/setup-cf-cli@master
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
       with:
-        CF_USERNAME: ${{ secrets.CF_USERNAME }}
-        CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
-        CF_SPACE_NAME: ${{ env.SPACE }}
+        path: 'build'
 
-    - name: Push ${{ env.APP_NAME }} to GOV.UK PaaS
-      run: cf push -p build -b staticfile_buildpack --disk 128M --memory 64M ${{ env.APP_NAME }}
-
-    - name: Post comment to Pull Request ${{ github.event.number }}
-      if: ${{ github.event_name == 'pull_request' }}
-      uses: marocchino/sticky-pull-request-comment@v2
-      with:
-        message: Review app deployed to <https://${{ env.APP_NAME }}.london.cloudapps.digital>
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
