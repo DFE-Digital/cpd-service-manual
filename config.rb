@@ -34,16 +34,6 @@ SERVICE_DOCS = [
     ),
   },
   {
-    title: "Support for early career teachers runbooks",
-    pages: GitHubRepoFetcher.instance.docs(
-      service_name: "Support for early career teachers",
-      repo_name: "DFE-Digital/ecf-engage-and-learn",
-      path_in_repo: "documentation",
-      path_prefix: "runbooks/ecf-engage-and-learn",
-      # ignore_files: %w[api.md],
-    ),
-  },
-  {
     title: "Manage continuing professional development ADR",
     pages: GitHubRepoFetcher.instance.docs(
       service_name: "Manage continuing professional development",
