@@ -4,7 +4,7 @@
 # the following line to use "http://"
 source "https://rubygems.org"
 
-ruby "3.1.2"
+ruby "3.2.2"
 
 # Windows support
 gem "tzinfo-data", platforms: %i[mswin mingw jruby]
