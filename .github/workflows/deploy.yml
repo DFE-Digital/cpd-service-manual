@@ -56,10 +56,10 @@ jobs:
         uses: ts-graphviz/setup-graphviz@v1
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.101.0
+        uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: '3.1.2'
+          ruby-version: '3.2.2'
 
       - name: Install rails-erd
         run: |
@@ -175,6 +175,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Pull changes
+        run: git pull --rebase origin main
+
       - name: Get diagrams
         uses: actions/download-artifact@v2
         with:
@@ -187,7 +190,6 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git commit -m "updated entity relationship diagram"
-          git pull --rebase
           git push
 
   build-and-push:
@@ -217,7 +219,7 @@ jobs:
       uses: ruby/setup-ruby@v1.101.0
       with:
         bundler-cache: true
-        ruby-version: '3.1.2'
+        ruby-version: '3.2.2'
 
     - name: Validate C4 Models
       run: ./bin/c4-validate.sh
