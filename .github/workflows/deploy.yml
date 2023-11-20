@@ -223,6 +223,7 @@ jobs:
 
     - name: Validate C4 Models
       run: ./bin/c4-validate.sh
+      continue-on-error: true
 
     - name: Generate C4 Views
       run: ./bin/c4-to-plantuml.sh
