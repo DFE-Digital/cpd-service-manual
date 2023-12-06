@@ -630,6 +630,17 @@ m_SchoolMentor [label = <<table border="0" align="center" cellspacing="0.5" cell
   <tr><td align="left" width="130" port="remove_from_school_on">remove_from_school_on <font face="Arial Italic" color="grey60">date</font></td></tr>
 </table>
 >];
+m_SupportQuery [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">SupportQuery</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="additional_information">additional_information <font face="Arial Italic" color="grey60">jsonb ∗</font></td></tr>
+  <tr><td align="left" width="130" port="message">message <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="subject">subject <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="zendesk_ticket_id">zendesk_ticket_id <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
 m_SyncDQTInductionStartDateError [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">SyncDQTInductionStartDateError</font></td></tr>
 </table>
@@ -689,6 +700,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_School -> m_TeacherProfile [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
   m_TeacherProfile -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
   m_ParticipantProfile -> m_SyncDQTInductionStartDateError [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
+  m_User -> m_SupportQuery [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_School -> m_SchoolMentor [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_ParticipantIdentity -> m_SchoolMentor [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_School -> m_SchoolLocalAuthorityDistrict [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "3"];
