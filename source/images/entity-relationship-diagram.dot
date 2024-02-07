@@ -679,6 +679,16 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   <tr><td align="left" width="130" port="sign_in_count">sign_in_count <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
 </table>
 >];
+m_ValidationError [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ValidationError</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="details">details <font face="Arial Italic" color="grey60">jsonb</font></td></tr>
+  <tr><td align="left" width="130" port="form_object">form_object <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="request_path">request_path <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
   "m_Finance::ECF::Duplicate" -> "m_Finance::ECF::Duplicate" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   "m_Finance::ECF::Duplicate" -> m_InductionRecord [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
   m_User -> "m_Finance::ECF::Duplicate" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
@@ -697,6 +707,7 @@ m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding=
   m_Cohort -> "m_Finance::Schedule" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   "m_Finance::Schedule" -> "m_Finance::Milestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   "m_Finance::Schedule" -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "13"];
+  m_User -> m_ValidationError [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_User -> m_TeacherProfile [arrowsize = "0.6", arrowhead = "dot", arrowtail = "odot", weight = "2"];
   m_School -> m_TeacherProfile [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
   m_TeacherProfile -> m_ParticipantProfile [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
