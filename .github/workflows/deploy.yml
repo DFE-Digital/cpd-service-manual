@@ -165,6 +165,7 @@ jobs:
           path: ./tmp/entity-relationship-diagram.*
 
   update-diagrams:
+    if: ${{ github.event_name != 'pull_request' }}
     name: Update entity relationship artifacts
 
     runs-on: ubuntu-latest
@@ -174,9 +175,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Pull changes
-        run: git pull --rebase origin main
 
       - name: Get diagrams
         uses: actions/download-artifact@v2
@@ -190,7 +188,7 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git commit -m "updated entity relationship diagram"
-          git push
+          git push origin
 
   build-and-push:
     if: ${{ github.event_name != 'pull_request' }}
@@ -202,16 +200,6 @@ jobs:
     needs: update-diagrams
 
     steps:
-    - uses: DFE-Digital/github-actions/turnstyle@master
-      name: Check workflow concurrency
-      with:
-        initial-wait-seconds: 15
-        poll-interval-seconds: 15
-        abort-after-seconds: 300
-        same-branch-only: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Checkout
       uses: actions/checkout@v3
 
