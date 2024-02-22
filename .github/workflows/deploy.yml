@@ -202,16 +202,6 @@ jobs:
     needs: update-diagrams
 
     steps:
-    - uses: DFE-Digital/github-actions/turnstyle@master
-      name: Check workflow concurrency
-      with:
-        initial-wait-seconds: 15
-        poll-interval-seconds: 15
-        abort-after-seconds: 300
-        same-branch-only: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Checkout
       uses: actions/checkout@v3
 
