@@ -22,6 +22,7 @@ m_AppropriateBody [label = <<table border="0" align="center" cellspacing="0.5" c
   <tr><td align="left" width="130" port="body_type">body_type <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="disable_from_year">disable_from_year <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="listed">listed <font face="Arial Italic" color="grey60">boolean ∗</font></td></tr>
+  <tr><td align="left" width="130" port="listed_for_school_type_codes">listed_for_school_type_codes <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
 </table>
 >];
