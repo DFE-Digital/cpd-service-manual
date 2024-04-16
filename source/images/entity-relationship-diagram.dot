@@ -510,6 +510,15 @@ m_ParticipantProfileSchedule [label = <<table border="0" align="center" cellspac
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantProfileSchedule</font></td></tr>
 </table>
 >];
+m_ParticipantProfileStartDateInconsistency [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantProfileStartDateInconsistency</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="dqt_value">dqt_value <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="participant_value">participant_value <font face="Arial Italic" color="grey60">date</font></td></tr>
+</table>
+>];
 m_ParticipantProfileState [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">ParticipantProfileState</font></td></tr>
 </table>
@@ -739,6 +748,7 @@ m_ValidationError [label = <<table border="0" align="center" cellspacing="0.5" c
   m_Partnership -> m_InductionProgramme [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "2"];
   m_ParticipantProfile -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "11"];
   m_CpdLeadProvider -> m_ParticipantProfileState [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "1"];
+  m_ParticipantProfile -> m_ParticipantProfileStartDateInconsistency [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_ParticipantProfile -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "6"];
   "m_Finance::Schedule" -> m_ParticipantProfileSchedule [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
   m_User -> m_ParticipantIdentity [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "2"];
