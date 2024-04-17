@@ -358,6 +358,7 @@ m_NPQContract [label = <<table border="0" align="center" cellspacing="0.5" cellp
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="funding_cap">funding_cap <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="monthly_service_fee">monthly_service_fee <font face="Arial Italic" color="grey60">decimal</font></td></tr>
   <tr><td align="left" width="130" port="number_of_payment_periods">number_of_payment_periods <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="output_payment_percentage">output_payment_percentage <font face="Arial Italic" color="grey60">integer</font></td></tr>
