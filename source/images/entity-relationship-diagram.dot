@@ -723,7 +723,7 @@ m_ValidationError [label = <<table border="0" align="center" cellspacing="0.5" c
   "m_Finance::Statement" -> "m_Finance::StatementLineItem" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "22"];
   m_ParticipantDeclaration -> "m_Finance::StatementLineItem" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
   m_CpdLeadProvider -> "m_Finance::Statement" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "8"];
-  m_Cohort -> "m_Finance::Statement" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
+  m_Cohort -> "m_Finance::Statement" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "8"];
   "m_Finance::Statement" -> "m_Finance::Adjustment" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "8"];
   "m_Finance::Schedule" -> "m_Finance::ScheduleMilestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "9"];
   "m_Finance::Milestone" -> "m_Finance::ScheduleMilestone" [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "1"];
@@ -772,6 +772,7 @@ m_ValidationError [label = <<table border="0" align="center" cellspacing="0.5" c
   m_ParticipantDeclaration -> m_ParticipantDeclarationAttempt [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "4"];
   m_CpdLeadProvider -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "4"];
   m_User -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
+  m_Cohort -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "4"];
   m_ParticipantProfile -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
   m_ParticipantDeclaration -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "6"];
   m_DeliveryPartner -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "3"];
