@@ -772,7 +772,7 @@ m_ValidationError [label = <<table border="0" align="center" cellspacing="0.5" c
   m_ParticipantDeclaration -> m_ParticipantDeclarationAttempt [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "4"];
   m_CpdLeadProvider -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "4"];
   m_User -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
-  m_Cohort -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "4"];
+  m_Cohort -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "4"];
   m_ParticipantProfile -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "dotnormal", arrowtail = "odot", weight = "7"];
   m_ParticipantDeclaration -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "6"];
   m_DeliveryPartner -> m_ParticipantDeclaration [arrowsize = "0.6", arrowhead = "odotnormal", arrowtail = "odot", weight = "3"];
