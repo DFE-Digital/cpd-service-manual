@@ -53,6 +53,7 @@ m_Cohort [label = <<table border="0" align="center" cellspacing="0.5" cellpaddin
   <tr><td align="left" width="130" port="academic_year_start_date">academic_year_start_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="automatic_assignment_period_end_date">automatic_assignment_period_end_date <font face="Arial Italic" color="grey60">date</font></td></tr>
   <tr><td align="left" width="130" port="npq_registration_start_date">npq_registration_start_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="payments_frozen_at">payments_frozen_at <font face="Arial Italic" color="grey60">datetime (6,0)</font></td></tr>
   <tr><td align="left" width="130" port="registration_start_date">registration_start_date <font face="Arial Italic" color="grey60">datetime</font></td></tr>
   <tr><td align="left" width="130" port="start_year">start_year <font face="Arial Italic" color="grey60">integer (2) ∗</font></td></tr>
 </table>
@@ -488,6 +489,7 @@ m_ParticipantProfile [label = <<table border="0" align="center" cellspacing="0.5
 </table>
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="cohort_changed_after_payments_frozen">cohort_changed_after_payments_frozen <font face="Arial Italic" color="grey60">boolean</font></td></tr>
   <tr><td align="left" width="130" port="cohort_id">cohort_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
   <tr><td align="left" width="130" port="core_induction_programme_id">core_induction_programme_id <font face="Arial Italic" color="grey60">uuid</font></td></tr>
   <tr><td align="left" width="130" port="induction_completion_date">induction_completion_date <font face="Arial Italic" color="grey60">date</font></td></tr>
